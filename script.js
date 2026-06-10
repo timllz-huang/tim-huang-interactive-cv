@@ -235,6 +235,12 @@ document.querySelectorAll("[data-jump]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-link]").forEach((button) => {
+  button.addEventListener("click", () => {
+    window.location.href = button.dataset.link;
+  });
+});
+
 timelineNodes.forEach((node) => {
   node.addEventListener("click", () => setTimelinePanel(node.dataset.panel));
 });
