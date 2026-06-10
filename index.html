@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interactive personal CV for Runtian Tim Huang, Head of IT.">
+    <title>Runtian Huang | Head of IT</title>
+    <link rel="preload" href="assets/hero-loop.webp" as="image">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="progress-rail" aria-hidden="true">
+      <span>0m</span>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <span>50m</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Runtian Huang home">RH</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#spearfishing">Spearfishing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="dive-toggle" type="button" aria-pressed="false">
+          <span class="toggle-orb"></span>
+          Dive Mode
+        </button>
+        <button class="palette-button" type="button" aria-haspopup="dialog" aria-controls="commandPalette">
+          <span>⌘</span>K
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="profile">
+        <img class="hero-motion" src="assets/hero-loop.webp" alt="" aria-hidden="true">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Strategic leader. Systems thinker. Ocean minded.</p>
+          <h1>Runtian<br>Huang</h1>
+          <div class="role-line">
+            <span></span>
+            <strong>Head of IT</strong>
+            <span></span>
+          </div>
+          <p class="hero-summary">15+ years driving IT and OT transformation across energy, logistics, and compliance sectors, with cloud-first architecture, cyber resilience, SCADA-aware infrastructure, and AI-ready data foundations.</p>
+          <div class="identity-row">
+            <span>Banpu Energy Australia</span>
+            <span>Sydney NSW</span>
+          </div>
+          <div class="hero-tags" data-filter-scope="hero" aria-label="Explore Tim Huang signals">
+            <button type="button" data-signal="it-ot">IT/OT Roadmap</button>
+            <button type="button" data-signal="essential-eight">Essential Eight</button>
+            <button type="button" data-signal="finops">FinOps</button>
+            <button type="button" data-signal="ai-cloud">AI Cloud</button>
+            <button type="button" data-signal="pmp">PMP</button>
+          </div>
+          <aside class="signal-panel reveal" id="signalPanel" aria-live="polite">
+            <p class="eyebrow">Selected signal</p>
+            <h3>Tap a category to surface the evidence.</h3>
+            <p>Each category reveals the related projects, certifications, and career experience across the page.</p>
+            <div class="signal-columns">
+              <div>
+                <span>Projects</span>
+                <strong id="signalProjects">Waiting for signal</strong>
+              </div>
+              <div>
+                <span>Credentials</span>
+                <strong id="signalCredentials">Waiting for signal</strong>
+              </div>
+              <div>
+                <span>Experience</span>
+                <strong id="signalExperience">Waiting for signal</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <aside class="command-panel reveal" aria-label="At a glance">
+          <p class="panel-label">Command Palette</p>
+          <button class="search-command" type="button">Type a command or jump to...</button>
+          <div class="quick-grid">
+            <button type="button" data-jump="#experience">Experience</button>
+            <button type="button" data-jump="#projects">Projects</button>
+            <button type="button" data-jump="#credentials">Credentials</button>
+            <button type="button" data-jump="#spearfishing">Spearfishing</button>
+            <button type="button" data-jump="#contact">Contact</button>
+            <a href="assets/tim-huang-head-of-it-updated-cv.docx" download>Download CV</a>
+          </div>
+          <div class="glance">
+            <div><strong data-count="15" data-suffix="+">0</strong><span>Years leadership</span></div>
+            <div><strong data-count="90" data-suffix="%">0</strong><span>Workflow time saved</span></div>
+            <div><strong data-count="95" data-suffix="%">0</strong><span>Roadmap delivered</span></div>
+          </div>
+          <blockquote>Beneath the surface, clarity. Above it, impact.</blockquote>
+        </aside>
+      </section>
+
+      <section class="ticker" aria-label="Career achievements">
+        <div class="ticker-track">
+          <span>Zero high severity security incidents for 4+ years</span>
+          <span>95% of Year 1 IT/OT roadmap delivered</span>
+          <span>90% onboarding and offboarding time saved</span>
+          <span>30% cloud operations cost savings achieved</span>
+          <span>Energy One private cloud maintained at 99.9% uptime</span>
+          <span>Meraki SDN transformation</span>
+          <span>AESCSF audit and SOCI-aware cyber uplift</span>
+        </div>
+      </section>
+
+      <section class="world section-pad">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Explore my world</p>
+          <h2>Filter the signal.</h2>
+          <p>Jump between the systems I build, secure, automate, and optimise.</p>
+        </div>
+        <div class="filter-bar reveal" role="group" aria-label="Filter expertise">
+          <button class="active" type="button" data-filter="all">All zones</button>
+          <button type="button" data-filter="cybersecurity">Cybersecurity</button>
+          <button type="button" data-filter="cloud">Cloud</button>
+          <button type="button" data-filter="it-ot">IT/OT</button>
+          <button type="button" data-filter="ai-cloud">AI Cloud</button>
+          <button type="button" data-filter="infrastructure">Infrastructure</button>
+          <button type="button" data-filter="energy">Energy OT</button>
+          <button type="button" data-filter="enterprise">Enterprise Systems</button>
+          <button type="button" data-filter="delivery">Delivery</button>
+        </div>
+      </section>
+
+      <section class="projects section-pad" id="projects">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Expedition logs</p>
+          <h2>Missions that moved the business.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card project-card-ai reveal" data-category="cloud delivery ai-cloud" tabindex="0">
+            <div class="project-face project-front">
+              <span>01</span>
+              <h3>Hybrid cloud AI foundation</h3>
+              <p>Designed cloud architecture and data streaming into Azure Data Factory for AI-driven asset performance modelling.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>AI-ready energy data layer</h3>
+              <p>Proposed a hybrid cloud model that connects asset telemetry into Azure Data Factory, creating the foundation for performance modelling, decision support, and scalable renewable energy operations.</p>
+              <strong>Azure Data Factory / Hybrid cloud / Asset telemetry</strong>
+            </div>
+          </article>
+          <article class="project-card project-card-cyber reveal" data-category="cybersecurity energy essential-eight it-ot" tabindex="0">
+            <div class="project-face project-front">
+              <span>02</span>
+              <h3>IT/OT cyber uplift</h3>
+              <p>Advanced Essential Eight initiatives, SOCI planning, AESCSF audit participation, and Dragos evaluation for SCADA-integrated sites.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>Cyber maturity across critical assets</h3>
+              <p>Led cyber uplift across IT and OT environments, balancing compliance, audit readiness, threat monitoring, and practical controls for SCADA-integrated solar infrastructure.</p>
+              <strong>Essential Eight / SOCI / AESCSF / Dragos</strong>
+            </div>
+          </article>
+          <article class="project-card project-card-finops reveal" data-category="cloud delivery finops" tabindex="0">
+            <div class="project-face project-front">
+              <span>03</span>
+              <h3>FinOps optimisation</h3>
+              <p>Achieved 30% cloud operations savings, with a further 20-30% target through reserved instances, workload tuning, and license consolidation.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>Cloud spend with operating discipline</h3>
+              <p>Reduced cloud operating cost while keeping service reliability intact, using workload review, reserved capacity, licence consolidation, and governance conversations with stakeholders.</p>
+              <strong>30% saved / Reserved instances / Licence governance</strong>
+            </div>
+          </article>
+          <article class="project-card project-card-meraki reveal" data-category="infrastructure ccnp mcse it-ot" tabindex="0">
+            <div class="project-face project-front">
+              <span>04</span>
+              <h3>Meraki segmentation</h3>
+              <p>Deployed Meraki SDN, VLANs, QoS, and centralised management to support OT isolation and secure asset connectivity.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>Network control for OT isolation</h3>
+              <p>Moved the network toward a more observable, segmented, and centrally managed model, supporting secure asset connectivity, quality of service, and operational resilience.</p>
+              <strong>Meraki SDN / VLANs / QoS / OT isolation</strong>
+            </div>
+          </article>
+          <article class="project-card project-card-automation reveal" data-category="delivery pmp automation" tabindex="0">
+            <div class="project-face project-front">
+              <span>05</span>
+              <h3>Lifecycle automation</h3>
+              <p>Built Power Automate and SharePoint onboarding/offboarding workflows, reducing manual process effort by 90%.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>From manual handoffs to governed flow</h3>
+              <p>Connected HR and IT workflows through SharePoint, M365, and Power Automate, improving identity lifecycle control, audit readiness, and staff onboarding speed.</p>
+              <strong>90% time saved / M365 / SharePoint / Power Automate</strong>
+            </div>
+          </article>
+          <article class="project-card project-card-enterprise reveal" data-category="enterprise delivery" tabindex="0">
+            <div class="project-face project-front">
+              <span>06</span>
+              <h3>Enterprise systems governance</h3>
+              <p>Managed Energy One private cloud, SAP ERP, WMS, and multi-vendor delivery across IT, OT, cyber, SCADA, and asset platforms.</p>
+            </div>
+            <div class="project-face project-back">
+              <span>Mission brief</span>
+              <h3>Keeping business platforms dependable</h3>
+              <p>Governed vendor delivery across trading, ERP, warehouse, cyber, and asset systems, maintaining Energy One private cloud uptime and aligning platforms to business operations.</p>
+              <strong>99.9% uptime / SAP / WMS / Vendor governance</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="timeline section-pad" id="experience">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Career depth map</p>
+          <h2>A journey of building resilient systems that scale.</h2>
+        </div>
+        <div class="career-dive-band reveal" aria-label="Career dive profile">
+          <div class="dive-band-copy">
+            <p class="eyebrow">Career dive profile</p>
+            <span>15+ years navigating complex environments.</span>
+          </div>
+          <div class="dive-path" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="dive-profile-points">
+            <button class="dive-profile-node" type="button" data-panel="wta">
+              <strong>2009</strong>
+              <span>Start</span>
+            </button>
+            <button class="dive-profile-node" type="button" data-panel="ideagen-admin">
+              <strong>2013</strong>
+              <span>Level up</span>
+            </button>
+            <button class="dive-profile-node" type="button" data-panel="ideagen-manager">
+              <strong>2016</strong>
+              <span>Take the lead</span>
+            </button>
+            <button class="dive-profile-node" type="button" data-panel="anspec">
+              <strong>2022</strong>
+              <span>Operations</span>
+            </button>
+            <button class="dive-profile-node active" type="button" data-panel="banpu">
+              <strong>Present</strong>
+              <span>Continue the dive</span>
+            </button>
+          </div>
+        </div>
+        <div class="timeline-line reveal">
+          <button class="timeline-node active" data-panel="banpu" data-category="essential-eight finops cloud energy it-ot ai-cloud"><span>2023</span>Banpu Energy Australia</button>
+          <button class="timeline-node" data-panel="anspec" data-category="essential-eight infrastructure delivery enterprise pmp"><span>2022</span>Anspec</button>
+          <button class="timeline-node" data-panel="ideagen-manager" data-category="cloud cybersecurity delivery enterprise"><span>2018</span>Ideagen</button>
+          <button class="timeline-node" data-panel="ideagen-admin" data-category="ccnp mcse infrastructure cloud"><span>2012</span>Senior systems</button>
+          <button class="timeline-node" data-panel="wta" data-category="infrastructure ccnp mcse"><span>2009</span>W.T.A foundation</button>
+        </div>
+        <div class="experience-panel reveal" id="experiencePanel">
+          <h3>Head of IT - Banpu Energy Australia</h3>
+          <p>Leading IT/OT transformation, cyber maturity uplift, cloud optimisation, Energy One operations, Meraki segmentation, and executive-level strategy across renewable energy infrastructure.</p>
+        </div>
+      </section>
+
+      <section class="expertise section-pad" id="credentials">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Core expertise</p>
+          <h2>Technical range with leadership discipline.</h2>
+        </div>
+        <div class="expertise-grid">
+          <article class="reveal" data-category="cybersecurity essential-eight security-plus">
+            <h3>Cybersecurity</h3>
+            <p>Essential Eight, NIST, SOCI awareness, AESCSF audit participation, KnowBe4 awareness, OT monitoring evaluation, and cyber governance.</p>
+          </article>
+          <article class="reveal" data-category="cloud finops ai-cloud">
+            <h3>Cloud & Platform</h3>
+            <p>Azure, AWS, M365 E5, Intune, private cloud, Azure Data Factory, hybrid architecture, governance, and FinOps.</p>
+          </article>
+          <article class="reveal" data-category="infrastructure ccnp mcse">
+            <h3>Infrastructure</h3>
+            <p>Cisco, Meraki, Aruba, VLANs, VPNs, SD-WAN, VMware, Hyper-V, monitoring, DR design, and enterprise support.</p>
+          </article>
+          <article class="reveal" data-category="energy it-ot">
+            <h3>Energy OT</h3>
+            <p>SCADA/OT integration, network segmentation, solar site resilience, asset data streaming, Energy One, and renewable energy operations.</p>
+          </article>
+          <article class="reveal" data-category="delivery pmp enterprise">
+            <h3>Leadership</h3>
+            <p>Executive communication, vendor governance, budgeting, forecasting, contract management, team development, and roadmap delivery.</p>
+          </article>
+        </div>
+        <div class="credential-drawer reveal">
+          <button type="button" class="drawer-toggle" aria-expanded="false">Open certification drawer</button>
+          <div class="drawer-content">
+            <span data-category="cloud finops ai-cloud">AWS Solutions Architect Associate</span>
+            <span data-category="cloud delivery">AWS DevOps Associate</span>
+            <span data-category="cloud">AWS SysOps Associate</span>
+            <span data-category="infrastructure ccnp">CCNP Routing & Switching</span>
+            <span data-category="cybersecurity ccnp">CCNP Security</span>
+            <span data-category="cybersecurity security-plus essential-eight">CompTIA Security+</span>
+            <span data-category="cybersecurity">CompTIA A+</span>
+            <span data-category="infrastructure mcse">MCSE Server Infrastructure</span>
+            <span data-category="infrastructure mcse">MCITP Server Administrator</span>
+            <span data-category="infrastructure">CompTIA Linux+</span>
+            <span data-category="delivery pmp">PMP</span>
+            <span data-category="delivery pmp">ITIL Foundation</span>
+            <span data-category="delivery">Salesforce Administrator</span>
+            <span data-category="cybersecurity">In progress: CISSP</span>
+            <span data-category="cybersecurity">In progress: OSCP</span>
+            <span data-category="cloud ai-cloud">In progress: AWS SA-Pro</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="spearfishing section-pad" id="spearfishing">
+        <div class="spearfishing-copy reveal">
+          <p class="eyebrow">Spearfishing</p>
+          <h2>Depth, patience, precision.</h2>
+          <p>Spearfishing brings a personal layer to the site: calm under pressure, respect for conditions, and the discipline to read what is happening beneath the surface.</p>
+          <button class="ripple-button" type="button">Send a sonar ping</button>
+        </div>
+        <div class="depth-card reveal">
+          <span>23m</span>
+          <p>Focus below the surface. Leadership above it.</p>
+          <div class="sonar" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="contact section-pad" id="contact">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Surface</p>
+          <h2>Let’s connect.</h2>
+          <p>Open to senior IT leadership conversations across IT/OT transformation, cybersecurity, cloud architecture, infrastructure resilience, and AI-ready digital foundations.</p>
+        </div>
+        <div class="contact-actions reveal">
+          <a href="https://www.linkedin.com/in/runtian-huang-58751455/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:timllz83@gmail.com?subject=IT leadership conversation with Tim Huang">Email</a>
+          <a href="assets/tim-huang-head-of-it-updated-cv.docx" download>Head of IT CV</a>
+          <a href="assets/tim-huang-cio-cv.docx" download>CIO CV</a>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="command-dialog" id="commandPalette">
+      <form method="dialog">
+        <div class="dialog-head">
+          <strong>Command Palette</strong>
+          <button type="submit">Close</button>
+        </div>
+        <input type="search" placeholder="Type: projects, credentials, spearfishing..." aria-label="Command search">
+        <div class="command-list">
+          <button value="experience" data-jump="#experience">Experience</button>
+          <button value="projects" data-jump="#projects">Projects</button>
+          <button value="credentials" data-jump="#credentials">Credentials</button>
+          <button value="spearfishing" data-jump="#spearfishing">Spearfishing</button>
+          <button value="contact" data-jump="#contact">Contact</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
