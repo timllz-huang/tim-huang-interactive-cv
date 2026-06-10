@@ -531,14 +531,16 @@ blockquote {
 
 .project-card:hover .project-front,
 .project-card:focus-within .project-front,
-.project-card:focus .project-front {
+.project-card:focus .project-front,
+.project-card.is-flipped .project-front {
   transform: rotateY(180deg);
   transition-delay: 0.18s;
 }
 
 .project-card:hover .project-back,
 .project-card:focus-within .project-back,
-.project-card:focus .project-back {
+.project-card:focus .project-back,
+.project-card.is-flipped .project-back {
   transform: rotateY(0deg);
   transition-delay: 0.18s;
 }
@@ -1011,6 +1013,7 @@ blockquote {
   .site-header {
     grid-template-columns: auto auto;
     padding: 16px;
+    background: rgba(6, 19, 19, 0.86);
   }
 
   .nav-links {
@@ -1026,11 +1029,47 @@ blockquote {
   }
 
   .hero {
-    padding: 112px 22px 40px;
+    min-height: auto;
+    padding: 104px 22px 48px;
+    gap: 28px;
+  }
+
+  .hero-copy {
+    align-self: start;
+    max-width: none;
+  }
+
+  .hero-summary {
+    max-width: none;
+    font-size: 18px;
+  }
+
+  .command-panel {
+    align-self: start;
+    padding: 22px;
   }
 
   .section-pad {
     padding: 64px 22px;
+  }
+
+  .world {
+    gap: 28px;
+  }
+
+  .filter-bar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-inline: -22px;
+    padding-inline: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-bar button {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .career-dive-band {
@@ -1068,17 +1107,34 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  .project-card {
+    min-height: 330px;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-card:hover .project-front,
+  .project-card:hover .project-back {
+    transition-delay: 0s;
+  }
+
   .expertise-grid article {
     border-right: 0;
     border-bottom: 1px solid rgba(245, 242, 235, 0.16);
   }
-
-  .filter-bar {
-    justify-content: flex-start;
-  }
 }
 
 @media (max-width: 620px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 26px;
+  }
+
   .dive-toggle {
     width: 44px;
     padding: 0;
@@ -1088,18 +1144,83 @@ blockquote {
 
   .palette-button {
     min-width: 44px;
+    padding: 0 10px;
+    font-size: 12px;
   }
 
   h1 {
-    font-size: clamp(64px, 23vw, 100px);
+    font-size: clamp(58px, 20vw, 88px);
+    line-height: 0.88;
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(34px, 13vw, 58px);
+  }
+
+  h3 {
+    font-size: 19px;
   }
 
   .role-line {
     font-size: 18px;
+    gap: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .role-line span {
+    width: 42px;
+  }
+
+  .hero-tags button,
+  .identity-row span,
+  .filter-bar button,
+  .contact-actions a {
+    width: auto;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .signal-panel {
+    padding: 14px;
+  }
+
+  .signal-columns div {
+    min-height: auto;
   }
 
   .quick-grid, .glance {
     grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 360px;
+  }
+
+  .project-face {
+    padding: 20px;
+  }
+
+  .project-card span {
+    font-size: 28px;
+  }
+
+  .project-back strong {
+    font-size: 11px;
+  }
+
+  .depth-card {
+    min-height: 300px;
+    padding: 24px;
+  }
+
+  blockquote {
+    font-size: 22px;
+  }
+
+  .contact-actions {
+    display: grid;
   }
 }
 

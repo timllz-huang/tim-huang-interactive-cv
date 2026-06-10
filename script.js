@@ -211,6 +211,22 @@ heroSignalButtons.forEach((button) => {
   button.addEventListener("click", () => applySignal(button.dataset.signal));
 });
 
+projectCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    projectCards.forEach((item) => {
+      if (item !== card) item.classList.remove("is-flipped");
+    });
+    card.classList.toggle("is-flipped");
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      card.click();
+    }
+  });
+});
+
 document.querySelectorAll("[data-jump]").forEach((button) => {
   button.addEventListener("click", () => {
     const target = document.querySelector(button.dataset.jump);
