@@ -1,6 +1,6 @@
 .descent-hero {
   position: relative;
-  background: #061421;
+  background: #01050a;
 }
 
 .descent-stage {
@@ -28,21 +28,32 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  color: #f3fffc;
-  font-family: "Space Grotesk", sans-serif;
+  color: var(--paper, #f5f2eb);
 }
 
 .descent-cue {
   position: absolute;
   left: 50%;
-  top: 28px;
+  bottom: 40px;
   transform: translateX(-50%);
   margin: 0;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
   letter-spacing: 0.46em;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 11px;
-  transition: opacity 800ms ease;
+  color: var(--lime, #c4ff2e);
+  transition: opacity 900ms ease;
+}
+
+.descent-cue::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 34px;
+  margin: 12px auto 0;
+  background: currentColor;
+  opacity: 0.6;
 }
 
 .descent-copy {
@@ -57,40 +68,48 @@
 .descent-copy h1 {
   grid-area: 1 / 1;
   margin: 0;
-  font-weight: 300;
-  font-size: clamp(28px, 5.4vw, 76px);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  line-height: 1.08;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(38px, 6.4vw, 92px);
+  letter-spacing: 0.02em;
+  line-height: 1.04;
   opacity: 0;
+  text-shadow: 0 0 70px rgba(1, 10, 16, 0.92);
+  transition: opacity 180ms linear;
+  will-change: opacity;
 }
 
 .descent-copy small {
   display: block;
-  margin-top: 18px;
-  font-size: 12px;
-  letter-spacing: 0.38em;
+  margin-top: 20px;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--aqua, #10b7c9);
 }
 
 .descent-gauge {
   position: absolute;
-  right: 28px;
-  top: 110px;
+  right: 30px;
+  top: 112px;
   bottom: 64px;
   display: grid;
   grid-template-rows: auto 1fr auto auto auto;
   justify-items: center;
   gap: 10px;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
   font-size: 10px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(243, 255, 252, 0.72);
+  color: rgba(245, 242, 235, 0.7);
 }
 
 .descent-track {
   width: 1px;
   height: 100%;
-  background: rgba(243, 255, 252, 0.2);
+  background: rgba(245, 242, 235, 0.2);
   position: relative;
 }
 
@@ -99,10 +118,11 @@
   left: 50%;
   width: 9px;
   height: 9px;
-  border: 1px solid #7fe3d4;
+  border: 1px solid var(--lime, #c4ff2e);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background: #061421;
+  box-shadow: 0 0 12px rgba(196, 255, 46, 0.4);
 }
 
 .descent-vitals {
@@ -115,39 +135,22 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #7fe3d4;
-  box-shadow: 0 0 10px #7fe3d4;
+  background: var(--aqua, #10b7c9);
+  box-shadow: 0 0 10px var(--aqua, #10b7c9);
 }
 
-.float-nav {
-  position: fixed;
-  z-index: 40;
-  inset: 0 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 34px;
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: #f3fffc;
-  pointer-events: none;
-}
-
-.float-nav a {
-  pointer-events: auto;
-  color: inherit;
-  text-decoration: none;
-}
-
-.float-nav nav {
-  display: flex;
-  gap: 22px;
+.after-dive {
+  position: relative;
+  z-index: 2;
+  background: var(--deep, #061313);
+  box-shadow: 0 -60px 120px rgba(1, 5, 10, 0.9);
 }
 
 @media (max-width: 767px) {
-  .float-nav nav { display: none; }
   .descent-gauge { right: 16px; top: 88px; }
-  .descent-copy h1 { letter-spacing: 0.1em; }
+  .descent-copy h1 { font-size: clamp(30px, 9vw, 52px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .descent-copy h1 { transition: none; }
 }

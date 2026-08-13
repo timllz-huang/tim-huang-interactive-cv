@@ -11,6 +11,9 @@ import * as THREE from "three";
 const MAX_DEPTH = 45;
 const SCROLL_VH = 480;
 const scroll = { p: 0, started: false };
+/* Damped copy of scroll.p, advanced once per frame — every scene element and
+   the HUD read this, so all motion shares the same water-like inertia. */
+const smooth = { p: 0 };
 const dummy = new THREE.Object3D();
 const fogColor = new THREE.Color();
 const chromaOffset = new THREE.Vector2();
@@ -105,7 +108,7 @@ function Caustics() {
   );
   useFrame((state) => {
     material.uniforms.uTime.value = state.clock.elapsedTime;
-    material.uniforms.uProgress.value = scroll.p;
+    material.uniforms.uProgress.value = smooth.p;
   });
   return (
     <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 11.6, -3]} material={material}>
@@ -138,7 +141,7 @@ function GodRays() {
     [],
   );
   useFrame((state) => {
-    const t = scroll.p;
+    const t = smooth.p;
     const visible = 1 - THREE.MathUtils.smoothstep(t, 0.18, 0.52);
     material.opacity = 0.09 * visible;
     if (group.current && visible > 0) {
@@ -181,7 +184,7 @@ function Diver({ reducedMotion }: { reducedMotion: boolean }) {
 
   useFrame((state) => {
     if (!root.current) return;
-    const t = clamp01(scroll.p);
+    const t = clamp01(smooth.p);
     path.getPointAt(ease(t), point);
     path.getTangentAt(ease(t), tangent).normalize();
     root.current.position.copy(point);
@@ -268,7 +271,7 @@ function FishSchool({ count, reducedMotion }: { count: number; reducedMotion: bo
 
   useFrame((state) => {
     if (!mesh.current) return;
-    const t = scroll.p;
+    const t = smooth.p;
     const visible = t > 0.18 && t < 0.5;
     mesh.current.visible = visible;
     if (!visible) return;
@@ -340,7 +343,7 @@ function Particles({
 
   useFrame((_, dt) => {
     if (!mesh.current) return;
-    const camY = THREE.MathUtils.lerp(8.2, -26, scroll.p);
+    const camY = THREE.MathUtils.lerp(8.2, -26, smooth.p);
     data.forEach((p, i) => {
       if (!reducedMotion) p.y += p.v * dt;
       if (p.y > 14) p.y = -14;
@@ -352,8 +355,8 @@ function Particles({
     mesh.current.instanceMatrix.needsUpdate = true;
     material.opacity =
       mode === "bubbles"
-        ? 0.34 * (1 - THREE.MathUtils.smoothstep(scroll.p, 0.38, 0.72))
-        : 0.12 + scroll.p * 0.22;
+        ? 0.34 * (1 - THREE.MathUtils.smoothstep(smooth.p, 0.38, 0.72))
+        : 0.12 + smooth.p * 0.22;
   });
 
   return <instancedMesh ref={mesh} args={[geometry, material, count]} frustumCulled={false} />;
@@ -367,7 +370,7 @@ function Kelp() {
   );
   useFrame(() => {
     if (!group.current) return;
-    const t = scroll.p;
+    const t = smooth.p;
     group.current.visible = t > 0.68;
     group.current.position.y = THREE.MathUtils.lerp(-20, -9, (t - 0.75) / 0.25);
   });
@@ -398,14 +401,16 @@ function Rig({ reducedMotion, mobile }: { reducedMotion: boolean; mobile: boolea
     };
   }, [background, fog, scene]);
 
-  useFrame((state) => {
-    const t = scroll.p;
+  useFrame((state, dt) => {
+    smooth.p = THREE.MathUtils.damp(smooth.p, scroll.p, 3.4, dt);
+    const t = smooth.p;
     const cam = camera as THREE.PerspectiveCamera;
     const targetY = THREE.MathUtils.lerp(8.2, -26, ease(t));
-    cam.position.y = THREE.MathUtils.lerp(cam.position.y, targetY, 0.05);
+    cam.position.y = THREE.MathUtils.damp(cam.position.y, targetY, 3, dt);
     if (!reducedMotion) {
-      cam.position.x = Math.sin(state.clock.elapsedTime * 0.32) * 0.14;
-      cam.position.z = 7.2 + Math.cos(state.clock.elapsedTime * 0.24) * 0.1;
+      const time = state.clock.elapsedTime;
+      cam.position.x = Math.sin(time * 0.32) * 0.14;
+      cam.position.z = 7.2 + Math.cos(time * 0.24) * 0.1;
     } else {
       cam.position.x = 0;
       cam.position.z = 7.2;
@@ -427,7 +432,7 @@ function PostFX({ enabled, mobile }: { enabled: boolean; mobile: boolean }) {
   const vignette = useRef<VignetteEffect>(null);
   const chroma = useRef<ChromaticAberrationEffect>(null);
   useFrame(() => {
-    const t = scroll.p;
+    const t = smooth.p;
     if (vignette.current) vignette.current.darkness = 0.3 + t * 0.58;
     if (chroma.current) {
       chromaOffset.set(0.0014 * t, 0.0009 * t);
@@ -486,7 +491,7 @@ function Overlay() {
   useEffect(() => {
     let frame = 0;
     const tick = (now: number) => {
-      const t = scroll.p;
+      const t = smooth.p;
       if (scroll.started && startedAt.current === null) startedAt.current = now;
       if (depthRef.current) depthRef.current.textContent = `${(t * MAX_DEPTH).toFixed(1)}m`;
       if (markerRef.current) markerRef.current.style.top = `${t * 100}%`;
@@ -514,8 +519,8 @@ function Overlay() {
         <h1 ref={aRef}>Hold your breath</h1>
         <h1 ref={bRef}>The surface is optional</h1>
         <h1 ref={cRef}>
-          RH Apnea
-          <small>Spearfishing / Systems</small>
+          Runtian Huang
+          <small>Head of IT · Spearfishing & Systems</small>
         </h1>
       </div>
       <aside className="descent-gauge" aria-label="Depth gauge">

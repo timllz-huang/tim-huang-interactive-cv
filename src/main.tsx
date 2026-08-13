@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import "./descent.css";
 import "./site.css";
+import "./descent.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
