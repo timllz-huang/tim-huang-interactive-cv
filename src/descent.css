@@ -1,0 +1,153 @@
+.descent-hero {
+  position: relative;
+  background: #061421;
+}
+
+.descent-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.descent-stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.descent-fallback {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(127, 227, 212, 0.3), transparent 46%),
+    linear-gradient(180deg, #1b4f72, #061421 70%, #000);
+}
+
+.descent-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  color: #f3fffc;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.descent-cue {
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
+  margin: 0;
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 11px;
+  transition: opacity 800ms ease;
+}
+
+.descent-copy {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 8vw;
+}
+
+.descent-copy h1 {
+  grid-area: 1 / 1;
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(28px, 5.4vw, 76px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.08;
+  opacity: 0;
+}
+
+.descent-copy small {
+  display: block;
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 0.38em;
+}
+
+.descent-gauge {
+  position: absolute;
+  right: 28px;
+  top: 110px;
+  bottom: 64px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  justify-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 255, 252, 0.72);
+}
+
+.descent-track {
+  width: 1px;
+  height: 100%;
+  background: rgba(243, 255, 252, 0.2);
+  position: relative;
+}
+
+.descent-marker {
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #7fe3d4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #061421;
+}
+
+.descent-vitals {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.descent-heart {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7fe3d4;
+  box-shadow: 0 0 10px #7fe3d4;
+}
+
+.float-nav {
+  position: fixed;
+  z-index: 40;
+  inset: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 34px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #f3fffc;
+  pointer-events: none;
+}
+
+.float-nav a {
+  pointer-events: auto;
+  color: inherit;
+  text-decoration: none;
+}
+
+.float-nav nav {
+  display: flex;
+  gap: 22px;
+}
+
+@media (max-width: 767px) {
+  .float-nav nav { display: none; }
+  .descent-gauge { right: 16px; top: 88px; }
+  .descent-copy h1 { letter-spacing: 0.1em; }
+}
