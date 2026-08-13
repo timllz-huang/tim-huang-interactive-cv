@@ -1,0 +1,156 @@
+.descent-hero {
+  position: relative;
+  background: #01050a;
+}
+
+.descent-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.descent-stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.descent-fallback {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(127, 227, 212, 0.3), transparent 46%),
+    linear-gradient(180deg, #1b4f72, #061421 70%, #000);
+}
+
+.descent-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  color: var(--paper, #f5f2eb);
+}
+
+.descent-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--lime, #c4ff2e);
+  transition: opacity 900ms ease;
+}
+
+.descent-cue::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 34px;
+  margin: 12px auto 0;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.descent-copy {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 8vw;
+}
+
+.descent-copy h1 {
+  grid-area: 1 / 1;
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(38px, 6.4vw, 92px);
+  letter-spacing: 0.02em;
+  line-height: 1.04;
+  opacity: 0;
+  text-shadow: 0 0 70px rgba(1, 10, 16, 0.92);
+  transition: opacity 180ms linear;
+  will-change: opacity;
+}
+
+.descent-copy small {
+  display: block;
+  margin-top: 20px;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--aqua, #10b7c9);
+}
+
+.descent-gauge {
+  position: absolute;
+  right: 30px;
+  top: 112px;
+  bottom: 64px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  justify-items: center;
+  gap: 10px;
+  font-family: var(--font-body, "Arial Narrow", sans-serif);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 235, 0.7);
+}
+
+.descent-track {
+  width: 1px;
+  height: 100%;
+  background: rgba(245, 242, 235, 0.2);
+  position: relative;
+}
+
+.descent-marker {
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--lime, #c4ff2e);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #061421;
+  box-shadow: 0 0 12px rgba(196, 255, 46, 0.4);
+}
+
+.descent-vitals {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.descent-heart {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--aqua, #10b7c9);
+  box-shadow: 0 0 10px var(--aqua, #10b7c9);
+}
+
+.after-dive {
+  position: relative;
+  z-index: 2;
+  background: var(--deep, #061313);
+  box-shadow: 0 -60px 120px rgba(1, 5, 10, 0.9);
+}
+
+@media (max-width: 767px) {
+  .descent-gauge { right: 16px; top: 88px; }
+  .descent-copy h1 { font-size: clamp(30px, 9vw, 52px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .descent-copy h1 { transition: none; }
+}

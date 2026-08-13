@@ -1,11 +1,19 @@
 # Runtian Huang Interactive CV
 
-Static personal CV website built for flexible hosting on GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
+Cinematic spearfishing descent hero (React + Three.js) with the original CV story below.
 
-## Run Locally
+## Run locally
 
-Open `index.html` directly in a browser, or serve the folder with any static server.
+```bash
+npm install
+npm run dev
+```
 
-## Deploy
+Open http://localhost:5173/ and scroll to descend.
 
-Upload the repository contents as a static site. The entry point is `index.html`.
+## Build
+
+```bash
+npm run build
+npm run preview
+```
