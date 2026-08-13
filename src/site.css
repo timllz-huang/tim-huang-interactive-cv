@@ -165,7 +165,7 @@ button { font: inherit; }
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
   align-items: stretch;
-  background: #061313 url("assets/underwater-hero.png") center / cover no-repeat;
+  background: #061313 url("../assets/underwater-hero.png") center / cover no-repeat;
   padding: 118px 38px 0 84px;
   overflow: hidden;
 }
@@ -501,27 +501,27 @@ blockquote {
 }
 
 .project-card-ai {
-  --project-image: url("assets/project-hybrid-cloud-ai.png");
+  --project-image: url("../assets/project-hybrid-cloud-ai.png");
 }
 
 .project-card-cyber {
-  --project-image: url("assets/project-it-ot-cyber.png");
+  --project-image: url("../assets/project-it-ot-cyber.png");
 }
 
 .project-card-finops {
-  --project-image: url("assets/project-finops.png");
+  --project-image: url("../assets/project-finops.png");
 }
 
 .project-card-meraki {
-  --project-image: url("assets/project-meraki-segmentation.png");
+  --project-image: url("../assets/project-meraki-segmentation.png");
 }
 
 .project-card-automation {
-  --project-image: url("assets/project-lifecycle-automation.png");
+  --project-image: url("../assets/project-lifecycle-automation.png");
 }
 
 .project-card-enterprise {
-  --project-image: url("assets/project-enterprise-systems.png");
+  --project-image: url("../assets/project-enterprise-systems.png");
 }
 
 .project-card:hover {
@@ -667,7 +667,7 @@ blockquote {
   height: 100%;
   background:
     linear-gradient(90deg, transparent, rgba(9, 11, 11, 0.12)),
-    url("assets/systems-texture.png") center / cover;
+    url("../assets/systems-texture.png") center / cover;
   clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
   filter: grayscale(1) contrast(1.1);
   opacity: 0.68;
@@ -873,7 +873,7 @@ blockquote {
   align-items: center;
   background:
     linear-gradient(90deg, rgba(6, 19, 19, 0.92), rgba(6, 19, 19, 0.44)),
-    url("assets/underwater-hero.png") center / cover;
+    url("../assets/underwater-hero.png") center / cover;
 }
 
 .depth-card {
