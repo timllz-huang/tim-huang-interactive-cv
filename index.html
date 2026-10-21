@@ -58,6 +58,7 @@ body.theme-ocean.tone-light {
 }
 
 * { box-sizing: border-box; }
+figure { margin: 0; }
 html { scroll-behavior: auto; }
 body {
   margin: 0;
@@ -106,9 +107,9 @@ button { font: inherit; }
 .stage { position: fixed; inset: 0; overflow: hidden; }
 .scene {
   position: absolute; inset: 0;
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, .78fr);
-  gap: clamp(24px, 3.4vw, 56px); align-items: center;
-  padding: 104px clamp(24px, 5vw, 80px) 132px;
+  display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.6fr) minmax(0, .62fr);
+  gap: clamp(28px, 3vw, 56px); align-items: center;
+  padding: 100px clamp(28px, 4.5vw, 88px) 124px;
   opacity: 0; visibility: hidden;
   transition: opacity .65s ease, visibility 0s linear .65s;
 }
@@ -127,14 +128,14 @@ button { font: inherit; }
 }
 .title {
   margin: 0 0 18px; font-family: "Lilita One"; font-weight: 400; text-transform: uppercase;
-  font-size: clamp(46px, 5.6vw, 96px); line-height: .92; letter-spacing: .005em;
+  font-size: clamp(40px, 4.4vw, 82px); line-height: .94; letter-spacing: .005em;
   color: var(--fg); text-shadow: var(--shadow-title);
 }
 .title em { font-style: normal; color: var(--capy-deep); }
 body.theme-ocean.tone-light .title em { color: var(--pill); }
 body.tone-light .pillnav, body.tone-light .dots, body.tone-light .marquee { box-shadow: 0 0 0 1px rgba(255,255,255,.22); }
 body.tone-light .logo { box-shadow: 0 0 0 1px rgba(255,255,255,.3); }
-.lede { margin: 0 0 22px; max-width: 34ch; font-size: clamp(16px, 1.25vw, 19px); line-height: 1.55; font-weight: 700; color: var(--fg-soft); }
+.lede { margin: 0 0 22px; max-width: 34ch; font-size: clamp(15px, 1.15vw, 18px); line-height: 1.55; font-weight: 700; color: var(--fg-soft); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   padding: 7px 12px; border-radius: 999px; border: 2px solid var(--card-line); background: var(--card);
@@ -151,43 +152,44 @@ body.tone-light .logo { box-shadow: 0 0 0 1px rgba(255,255,255,.3); }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
 /* ---------- media ---------- */
-.media { display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; height: 100%; max-height: 64vh; min-width: 0; }
+.media { display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; height: 100%; min-width: 0; }
 .media-inner { translate: var(--mx, 0) var(--my, 0); width: 100%; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; }
-.character { width: min(100%, 440px); mix-blend-mode: multiply; animation: breathe 4.5s ease-in-out infinite; }
+.character { width: min(100%, 480px, calc((100vh - 250px) * .9)); mix-blend-mode: multiply; animation: breathe 4.5s ease-in-out infinite; }
 .character img { display: block; width: 100%; height: auto; }
 @keyframes breathe { 50% { transform: scale(1.035) translateY(-6px); } }
 .frame {
-  position: relative; width: min(92%, 540px); padding: 12px 12px 14px; border-radius: 26px;
-  background: #fff; box-shadow: 0 22px 50px rgba(42, 26, 14, .22), 0 3px 0 rgba(42,26,14,.08);
-  rotate: -1.5deg; mix-blend-mode: normal;
+  position: relative; width: min(100%, 780px, calc((100vh - 290px) * 1.6 + 24px)); padding: 12px 12px 14px; border-radius: 24px;
+  background: #fff; box-shadow: 0 28px 60px rgba(42, 26, 14, .2), 0 2px 0 rgba(42,26,14,.06);
+  rotate: -.6deg; mix-blend-mode: normal;
 }
-.frame.tilt-r { rotate: 1.8deg; }
-.frame img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
+.frame.tilt-r { rotate: .6deg; }
+.frame.tall { width: min(100%, 520px, calc((100vh - 290px) * .8 + 24px)); }
+.frame img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 16px; }
 .frame.tall img { aspect-ratio: 4 / 5; }
-.frame figcaption { padding: 10px 6px 0; font-size: 13px; font-weight: 800; color: #6b5a4a; }
+.frame figcaption { padding: 10px 6px 0; font-size: 13px; font-weight: 800; color: #7a6a5a; letter-spacing: .01em; }
 body.theme-ocean .frame figcaption { color: #3f5d65; }
 .sticker {
-  position: absolute; right: -16px; top: -16px; width: 52px; height: 52px; border-radius: 50%;
-  display: grid; place-items: center; background: var(--pink); border: 3px solid var(--ink);
-  color: var(--ink); font-size: 22px; rotate: 14deg; box-shadow: 0 4px 0 var(--ink);
+  position: absolute; right: -12px; top: -12px; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--pink); border: 2.5px solid var(--ink);
+  color: var(--ink); font-size: 17px; rotate: 10deg; box-shadow: 0 3px 0 var(--ink);
 }
 .sticker::before { content: var(--sticker); }
 
 /* ---------- side cards ---------- */
 .side { display: grid; gap: 14px; align-content: center; translate: var(--cx, 0) var(--cy, 0); }
 .card {
-  padding: 22px; border-radius: 24px; background: var(--card); border: 2px solid var(--card-line);
+  padding: 20px; border-radius: 22px; background: var(--card); border: 2px solid var(--card-line);
   box-shadow: 0 10px 26px rgba(42, 26, 14, .08);
 }
-.stat-num { display: block; font-family: "Lilita One"; font-size: clamp(54px, 5vw, 84px); line-height: .9; color: var(--capy-deep); }
+.stat-num { display: block; font-family: "Lilita One"; font-size: clamp(42px, 3.8vw, 70px); line-height: .9; color: var(--capy-deep); }
 body.theme-ocean.tone-light .stat-num { color: var(--pill); }
-.stat-label { display: block; margin-top: 8px; font-size: 15px; font-weight: 800; color: var(--fg-soft); }
+.stat-label { display: block; margin-top: 8px; font-size: 14px; line-height: 1.4; font-weight: 800; color: var(--fg-soft); }
 .mini-label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--capy-deep); }
 body.theme-ocean.tone-light .mini-label { color: var(--pill); }
-.mini-title { display: block; font-size: 18px; font-weight: 900; line-height: 1.3; }
+.mini-title { display: block; font-size: 16px; font-weight: 900; line-height: 1.3; }
 
 /* ---------- final scene ---------- */
-.polaroids { position: relative; width: 100%; height: min(56vh, 460px); }
+.polaroids { position: relative; width: min(100%, 680px); height: min(calc(100vh - 260px), 600px); margin-inline: auto; }
 .polaroid {
   position: absolute; width: 42%; padding: 10px 10px 34px; background: #fff; border-radius: 6px;
   box-shadow: 0 16px 34px rgba(42,26,14,.22); transition: transform .35s cubic-bezier(.3,1.4,.5,1), z-index 0s;
@@ -257,7 +259,7 @@ body.theme-ocean.tone-light .mini-label { color: var(--pill); }
 body.tone-light .lang-toggle { background: #fff; }
 /* Chinese mode: CJK fallback fonts, slightly smaller display type */
 html[lang="zh-CN"] body { font-family: "Nunito", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
-html[lang="zh-CN"] .title { font-family: "Lilita One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 900; font-size: clamp(40px, 4.6vw, 80px); line-height: 1.12; letter-spacing: .02em; }
+html[lang="zh-CN"] .title { font-family: "Lilita One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 900; font-size: clamp(36px, 3.9vw, 70px); line-height: 1.12; letter-spacing: .02em; }
 html[lang="zh-CN"] .dedication { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 900; }
 html[lang="zh-CN"] .lede { max-width: 26em; }
 html[lang="zh-CN"] .kicker, html[lang="zh-CN"] .mini-label { letter-spacing: .04em; }
@@ -276,6 +278,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 @media (max-width: 1024px) {
   .scene { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; align-content: center; }
   .side { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .character { width: min(100%, 420px, calc((100vh - 400px) * .9)); }
+  .frame { width: min(100%, 620px, calc((100vh - 420px) * 1.6 + 24px)); }
+  .frame.tall { width: min(100%, 420px, calc((100vh - 420px) * .8 + 24px)); }
+  .polaroids { height: min(calc(100vh - 420px), 520px); }
   .pillnav { display: none; }
   .topbar { grid-template-columns: auto 1fr auto; }
   .now-label { display: block !important; justify-self: center; }
@@ -288,9 +294,9 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
     grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start;
     padding: 76px 20px 120px;
   }
-  .media { order: -1; max-height: 34vh; }
-  .character { width: min(62vw, 250px); }
-  .frame { width: min(84vw, 360px); padding: 8px 8px 10px; border-radius: 20px; }
+  .media { order: -1; max-height: 31vh; }
+  .character { width: min(56vw, 240px, 29vh); }
+  .frame { width: min(84vw, 360px, 46vh); padding: 8px 8px 10px; border-radius: 20px; }
   .frame img { aspect-ratio: 16 / 10; }
   .frame.tall img { aspect-ratio: 16 / 10; }
   .frame figcaption, .sticker { display: none; }
@@ -303,7 +309,7 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
   .stat-num { font-size: 40px; }
   .stat-label, .mini-title { font-size: 13px; }
   .chips { display: none; }
-  .polaroids { height: 30vh; }
+  .polaroids { height: 27vh; margin-top: 12px; }
   .polaroid { width: 40%; }
   .dots { bottom: 54px; gap: 7px; }
   .dots button { width: 9px; height: 9px; }
@@ -319,6 +325,21 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
   .now-label { font-size: 13px; }
   .side { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
+@media (max-width: 680px) and (max-height: 760px) {
+  .scene { padding-top: 70px; gap: 10px; }
+  .media { max-height: 29vh; }
+  .character { width: min(56vw, 220px, 27vh); }
+  .frame { width: min(84vw, 340px, 44vh); }
+  .title, html[lang="zh-CN"] .title { font-size: clamp(28px, 8.6vw, 38px); }
+  .lede { font-size: 14px; line-height: 1.45; }
+  .kicker { margin-bottom: 8px; }
+  .card { padding: 12px; }
+  .stat-num { font-size: 32px; }
+  .stat-label, .mini-title { font-size: 12px; line-height: 1.3; }
+  .dedication, body.theme-ocean .dedication { font-size: 15px; }
+  .btn { padding: 9px 14px; font-size: 14px; }
+  .polaroids { height: 24vh; }
+}
 @media (max-width: 430px) {
   .topbar { grid-template-columns: auto 1fr; }
   .now-label { display: none !important; }
@@ -327,6 +348,137 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .scene .rise { opacity: 1; transform: none; }
+}
+
+/* =================================================================
+   DEEP SEA theme: professional, spearfishing / dive-computer skin
+   ================================================================= */
+body.theme-ocean {
+  --fg: #EAF6F6; --fg-soft: rgba(234, 246, 246, .74); --accent: #6FE3D2;
+  --ink: #04121A; --pill: #6FE3D2; --card-line: rgba(255,255,255,.14); --num: rgba(255,255,255,.025);
+  --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+.stage { z-index: 1; }
+.ocean-fx { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .8s ease; overflow: hidden; }
+body.theme-ocean .ocean-fx { opacity: 1; }
+.ocean-fx .glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 45% at 55% -5%, rgba(150, 230, 245, .28), transparent 70%); opacity: var(--rays, 1); transition: opacity 1s ease; }
+.ocean-fx .rays {
+  position: absolute; inset: -10% -15% 25%;
+  background: repeating-linear-gradient(103deg, transparent 0 70px, rgba(190, 240, 255, .06) 70px 96px, transparent 96px 190px);
+  -webkit-mask-image: radial-gradient(ellipse 65% 85% at 55% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(ellipse 65% 85% at 55% 0%, #000 0%, transparent 72%);
+  opacity: var(--rays, 1); transform-origin: 50% 0; animation: sway 14s ease-in-out infinite alternate; transition: opacity 1s ease;
+}
+.ocean-fx .snow {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 22%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1.2px 1.2px at 38% 64%, rgba(255,255,255,.28), transparent 60%),
+    radial-gradient(1.8px 1.8px at 66% 36%, rgba(255,255,255,.3), transparent 60%),
+    radial-gradient(1.1px 1.1px at 84% 78%, rgba(255,255,255,.25), transparent 60%),
+    radial-gradient(1.4px 1.4px at 52% 12%, rgba(255,255,255,.22), transparent 60%);
+  background-size: 340px 340px; animation: snow 60s linear infinite;
+}
+.ocean-fx .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 75% at 50% 45%, transparent 55%, rgba(0, 6, 10, .45)); }
+@keyframes sway { to { transform: skewX(5deg) translateX(30px); } }
+@keyframes snow { to { background-position: 0 -340px; } }
+
+body.theme-ocean .title {
+  font-family: "Nunito", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; font-weight: 900;
+  text-transform: none; text-shadow: none; letter-spacing: -.02em; line-height: 1.03;
+  font-size: clamp(38px, 4.1vw, 74px); color: var(--fg);
+}
+body.theme-ocean .title em { color: var(--accent); }
+body.theme-ocean .kicker {
+  background: transparent; color: var(--accent); border: 1px solid rgba(111, 227, 210, .45);
+  border-radius: 6px; font-family: var(--mono); font-weight: 600; letter-spacing: .14em; font-size: 11px;
+}
+body.theme-ocean .kicker::before { content: attr(data-depth); text-transform: none; padding-right: 10px; margin-right: 2px; border-right: 1px solid rgba(111,227,210,.4); }
+body.theme-ocean .bignum { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--num); letter-spacing: -.04em; }
+body.theme-ocean .lede { color: var(--fg-soft); font-weight: 600; }
+body.theme-ocean .chip { background: transparent; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; color: var(--fg); font-weight: 700; }
+body.theme-ocean .card {
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+  border: 1px solid rgba(255,255,255,.14); border-radius: 14px; box-shadow: 0 24px 50px rgba(0,0,0,.28);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+body.theme-ocean .stat-num { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--accent); letter-spacing: -.03em; }
+body.theme-ocean .stat-label, body.theme-ocean .mini-title { color: var(--fg); }
+body.theme-ocean .stat-label { color: var(--fg-soft); }
+body.theme-ocean .mini-label { color: var(--accent); font-family: var(--mono); font-weight: 600; letter-spacing: .14em; }
+body.theme-ocean .frame {
+  background: #031018; padding: 0; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; rotate: 0deg;
+  overflow: hidden; box-shadow: 0 34px 80px rgba(0,0,0,.5), 0 0 0 8px rgba(255,255,255,.025);
+}
+body.theme-ocean .frame img { border-radius: 0; }
+body.theme-ocean .frame figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 18px 14px;
+  background: linear-gradient(180deg, transparent, rgba(2, 14, 20, .88));
+  color: #CFEFEA; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+}
+body.theme-ocean .frame figcaption::before { content: "\25B8\00a0"; color: var(--accent); }
+body.theme-ocean .sticker { display: none; }
+body.theme-ocean .character {
+  mix-blend-mode: normal; aspect-ratio: 1; display: grid; align-items: end; overflow: hidden; border-radius: 50%;
+  padding: 8% 9% 0; background: radial-gradient(circle at 50% 30%, #1f7584, #0a3341 72%);
+  border: 1px solid rgba(255,255,255,.18); box-shadow: 0 0 0 12px rgba(255,255,255,.03), 0 0 0 13px rgba(111,227,210,.18), 0 34px 80px rgba(0,0,0,.45);
+}
+body.theme-ocean .polaroids { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: auto; width: min(100%, calc((100vh - 300px) * 1.05), 600px); }
+body.theme-ocean .polaroid { position: relative; inset: auto; width: auto; transform: none; }
+body.theme-ocean .polaroid:hover { transform: translateY(-4px); }
+body.theme-ocean .polaroid img { aspect-ratio: 4 / 3; }
+body.theme-ocean .polaroid { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 6px 6px 30px; box-shadow: 0 24px 50px rgba(0,0,0,.4); }
+body.theme-ocean .polaroid img { border-radius: 6px; }
+body.theme-ocean .polaroid span { color: #CFEFEA; font-family: var(--mono); font-weight: 600; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+body.theme-ocean .btn { background: var(--accent); color: var(--ink); border-radius: 10px; }
+body.theme-ocean .btn.alt { background: transparent; color: var(--fg); border: 1px solid rgba(255,255,255,.4); }
+body.theme-ocean .dedication { font-family: "Nunito", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 800; font-style: italic; color: var(--fg); font-size: 19px; }
+body.theme-ocean .logo { background: rgba(255,255,255,.08); color: var(--accent); border: 1px solid rgba(255,255,255,.2); font-family: "Nunito", sans-serif; font-weight: 900; }
+body.theme-ocean .pillnav { background: rgba(4, 18, 26, .55); border: 1px solid rgba(255,255,255,.12); box-shadow: none; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+body.theme-ocean .pillnav button { color: rgba(234,246,246,.7); }
+body.theme-ocean .pillnav button.active { background: var(--accent); color: var(--ink); }
+body.theme-ocean .cta { background: var(--accent); color: var(--ink); border: 1px solid var(--accent); box-shadow: none; }
+body.theme-ocean .cta:hover { box-shadow: 0 8px 22px rgba(111,227,210,.25); }
+body.theme-ocean .theme-toggle, body.theme-ocean .lang-toggle { background: rgba(255,255,255,.07); color: var(--fg); border: 1px solid rgba(255,255,255,.24); box-shadow: none; }
+body.theme-ocean .theme-toggle:hover, body.theme-ocean .lang-toggle:hover { box-shadow: none; border-color: var(--accent); }
+body.theme-ocean .theme-toggle .toggle-icon { background: rgba(255,255,255,.1); }
+body.theme-ocean .dots { background: rgba(4,18,26,.6); border: 1px solid rgba(255,255,255,.12); }
+body.theme-ocean .dots button.active { background: var(--accent); }
+body.theme-ocean .marquee { background: #03121A; color: var(--accent); border-top: 1px solid rgba(255,255,255,.08); }
+body.theme-ocean .marquee-track span { font-size: 12px; letter-spacing: .16em; font-weight: 800; }
+body.theme-ocean .particle.star { color: var(--accent); }
+
+/* dive computer depth readout */
+.depth-hud { display: none; }
+body.theme-ocean .depth-hud {
+  display: block; position: fixed; left: 24px; bottom: 62px; z-index: 41; font-family: var(--mono); color: var(--fg);
+  padding: 8px 14px; border-radius: 10px; background: rgba(4,18,26,.6); border: 1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.depth-hud .hud-row { display: flex; align-items: baseline; gap: 10px; }
+.depth-hud .hud-label { font-size: 10px; letter-spacing: .18em; color: var(--accent); }
+.depth-hud .hud-val { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 4.2ch; text-align: right; }
+.depth-hud .hud-unit { font-size: 11px; color: var(--fg-soft); }
+.depth-rail { display: none; }
+body.theme-ocean .depth-rail { display: block; position: fixed; left: 12px; top: 96px; bottom: 120px; width: 2px; z-index: 41; background: rgba(255,255,255,.12); border-radius: 2px; }
+.depth-rail i { position: absolute; left: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(111,227,210,.18); top: var(--dpos, 0%); transition: top .9s cubic-bezier(.2,.8,.2,1); }
+@media (max-width: 1024px) { body.theme-ocean .depth-rail { display: none; } }
+@media (max-width: 680px) {
+  body.theme-ocean .character { width: min(50vw, 210px, 26vh); }
+  body.theme-ocean .title { font-size: clamp(28px, 8.4vw, 40px); }
+  body.theme-ocean .polaroids { grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
+  body.theme-ocean .polaroid { padding: 4px; }
+  body.theme-ocean .polaroid img { aspect-ratio: 1; }
+  body.theme-ocean .polaroid span { display: none; }
+}
+@media (max-width: 680px) and (max-height: 760px) {
+  body.theme-ocean .character { width: min(46vw, 180px, 23vh); }
+  body.theme-ocean .title { font-size: clamp(26px, 7.8vw, 34px); }
+}
+@media (max-width: 680px) {
+  body.theme-ocean .depth-hud { left: 12px; bottom: 52px; padding: 5px 10px; }
+  .depth-hud .hud-val { font-size: 15px; }
+  .depth-hud .hud-label { display: none; }
 }
 </style>
 </head>
@@ -344,11 +496,14 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 </div>
 </header>
 <div class="track" id="track"></div>
+<div class="ocean-fx" aria-hidden="true"><div class="glow"></div><div class="rays"></div><div class="snow"></div><div class="vignette"></div></div>
+<div class="depth-rail" aria-hidden="true"><i></i></div>
+<div class="depth-hud" aria-hidden="true"><div class="hud-row"><span class="hud-label">DEPTH</span><span class="hud-val">0.0</span><span class="hud-unit">m</span></div></div>
 <main class="stage" id="stage">
-<section aria-label="Scene 1, Hello" class="scene" data-bg="#F9E4DC" data-name="Hello" data-ocean="#EAF6F4" data-tone="dark">
+<section aria-label="Scene 1, Hello" class="scene" data-bg="#F9E4DC" data-name="Hello" data-ocean="#0F4A5A" data-depth="0.0" data-tone="dark">
 <span aria-hidden="true" class="bignum">01</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s1.1">Scene 01 · Hello</p>
+<p class="kicker rise" data-depth="0 m" data-i18n="s1.1">Scene 01 · Hello</p>
 <h1 class="title rise" data-i18n="s1.2">Hi, I'm <em>Tim</em>.<br/>I keep the lights on.</h1>
 <p class="lede rise" data-i18n="s1.3">Runtian Huang, Head of IT at Banpu Energy Australia. Networks, cloud, cyber and the OT bits in between, keeping renewable energy running safely.</p>
 <div class="chips rise"><span class="chip">IT/OT</span><span class="chip">Cyber</span><span class="chip">Cloud</span><span class="chip">AI-ready data</span></div>
@@ -359,10 +514,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s1.6">Based in</span><span class="mini-title" data-i18n="s1.7">Sydney NSW · Energy, logistics &amp; SaaS</span></div>
 </aside>
 </section>
-<section aria-label="Scene 2, 2009" class="scene" data-bg="#F6EEDD" data-name="2009" data-ocean="#D7EFEC" data-tone="dark">
+<section aria-label="Scene 2, 2009" class="scene" data-bg="#F6EEDD" data-name="2009" data-ocean="#0D4252" data-depth="3.0" data-tone="dark">
 <span aria-hidden="true" class="bignum">02</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s2.1">Scene 02 · 2009 to 2012</p>
+<p class="kicker rise" data-depth="−3 m" data-i18n="s2.1">Scene 02 · 2009 to 2012</p>
 <h2 class="title rise" data-i18n="s2.2">Where the <em>dive</em> began.</h2>
 <p class="lede rise" data-i18n="s2.3">W.T.A International Trading. Linux, Windows, SANs, VPNs, PBX phones. If it blinked, I fixed it.</p>
 </div>
@@ -372,10 +527,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s2.6">Role</span><span class="mini-title" data-i18n="s2.7">Network Systems Administrator</span></div>
 </aside>
 </section>
-<section aria-label="Scene 3, Level up" class="scene" data-bg="#F5E7CC" data-name="Level up" data-ocean="#BFE5E0" data-tone="dark">
+<section aria-label="Scene 3, Level up" class="scene" data-bg="#F5E7CC" data-name="Level up" data-ocean="#0B3949" data-depth="6.0" data-tone="dark">
 <span aria-hidden="true" class="bignum">03</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s3.1">Scene 03 · 2012 to 2022</p>
+<p class="kicker rise" data-depth="−6 m" data-i18n="s3.1">Scene 03 · 2012 to 2022</p>
 <h2 class="title rise" data-i18n="s3.2">Levelling <em>up</em> in the cloud.</h2>
 <p class="lede rise" data-i18n="s3.3">Ideagen / CompliSpace. Moved everything from on-prem to Azure and Office 365, built DR, then led infrastructure for a growing SaaS business.</p>
 </div>
@@ -385,10 +540,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s3.6">Toolkit</span><span class="mini-title" data-i18n="s3.7">Azure · O365 · Aruba SDN · Intune</span></div>
 </aside>
 </section>
-<section aria-label="Scene 4, Taking the lead" class="scene" data-bg="#F2DDB8" data-name="Lead" data-ocean="#93D0CC" data-tone="dark">
+<section aria-label="Scene 4, Taking the lead" class="scene" data-bg="#F2DDB8" data-name="Lead" data-ocean="#0A3140" data-depth="9.0" data-tone="dark">
 <span aria-hidden="true" class="bignum">04</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s4.1">Scene 04 · 2022 to 2023</p>
+<p class="kicker rise" data-depth="−9 m" data-i18n="s4.1">Scene 04 · 2022 to 2023</p>
 <h2 class="title rise" data-i18n="s4.2">Taking the <em>lead</em>.</h2>
 <p class="lede rise" data-i18n="s4.3">IT Operations Manager at Anspec. Healthcare distribution and logistics: ISO 9001, SAP ERP, warehouse systems, and a real BCP/DRP.</p>
 </div>
@@ -398,10 +553,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s4.6">Shipped</span><span class="mini-title" data-i18n="s4.7">ISO 9001 · SAP · WMS · BCP/DRP</span></div>
 </aside>
 </section>
-<section aria-label="Scene 5, Head of IT now" class="scene" data-bg="#ECD3AC" data-name="Now" data-ocean="#4E9FA8" data-tone="light">
+<section aria-label="Scene 5, Head of IT now" class="scene" data-bg="#ECD3AC" data-name="Now" data-ocean="#082937" data-depth="12.0" data-tone="light">
 <span aria-hidden="true" class="bignum">05</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s5.1">Scene 05 · 2023 to now</p>
+<p class="kicker rise" data-depth="−12 m" data-i18n="s5.1">Scene 05 · 2023 to now</p>
 <h2 class="title rise" data-i18n="s5.2">Head of IT, <em>energy</em> edition.</h2>
 <p class="lede rise" data-i18n="s5.3">Banpu Energy Australia. Solar farms, batteries and SCADA, plus the cyber controls that keep critical infrastructure safe.</p>
 <div class="chips rise"><span class="chip">Essential Eight</span><span class="chip">SOCI</span><span class="chip">AESCSF</span><span class="chip">Dragos</span></div>
@@ -412,10 +567,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s5.6">Track record</span><span class="mini-title" data-i18n="s5.7">Zero high-severity incidents, 4+ years</span></div>
 </aside>
 </section>
-<section aria-label="Scene 6, Wins" class="scene" data-bg="#E5C9A0" data-name="Wins" data-ocean="#2E7482" data-tone="light">
+<section aria-label="Scene 6, Wins" class="scene" data-bg="#E5C9A0" data-name="Wins" data-ocean="#07222F" data-depth="15.0" data-tone="light">
 <span aria-hidden="true" class="bignum">06</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s6.1">Scene 06 · Wins</p>
+<p class="kicker rise" data-depth="−15 m" data-i18n="s6.1">Scene 06 · Wins</p>
 <h2 class="title rise" data-i18n="s6.2">Small team, <em>big</em> wins.</h2>
 <p class="lede rise" data-i18n="s6.3">Automated the boring bits, trimmed the cloud bill, and kept the trading platform up when it mattered.</p>
 </div>
@@ -425,10 +580,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s6.6">Also</span><span class="mini-title" data-i18n="s6.7">30% cloud savings · 99.9% uptime</span></div>
 </aside>
 </section>
-<section aria-label="Scene 7, Toolkit" class="scene" data-bg="#DCBE96" data-name="Toolkit" data-ocean="#1B5866" data-tone="light">
+<section aria-label="Scene 7, Toolkit" class="scene" data-bg="#DCBE96" data-name="Toolkit" data-ocean="#061B27" data-depth="18.0" data-tone="light">
 <span aria-hidden="true" class="bignum">07</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s7.1">Scene 07 · Toolkit</p>
+<p class="kicker rise" data-depth="−18 m" data-i18n="s7.1">Scene 07 · Toolkit</p>
 <h2 class="title rise" data-i18n="s7.2">My <em>toolkit</em>.</h2>
 <p class="lede rise" data-i18n="s7.3">Certified across cloud, networking, security and delivery, and still collecting.</p>
 <div class="chips rise"><span class="chip">AWS ×3</span><span class="chip">CCNP R&amp;S</span><span class="chip">CCNP Security</span><span class="chip">Security+</span><span class="chip">MCSE</span><span class="chip">PMP</span><span class="chip">ITIL</span></div>
@@ -439,10 +594,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s7.6">Next up</span><span class="mini-title" data-i18n="s7.7">CISSP · OSCP · AWS SA-Pro</span></div>
 </aside>
 </section>
-<section aria-label="Scene 8, Below the surface" class="scene" data-bg="#D2AE88" data-name="Deep" data-ocean="#0E3440" data-tone="light">
+<section aria-label="Scene 8, Below the surface" class="scene" data-bg="#D2AE88" data-name="Deep" data-ocean="#04131C" data-depth="23.0" data-tone="light">
 <span aria-hidden="true" class="bignum">08</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s8.1">Scene 08 · Off the clock</p>
+<p class="kicker rise" data-depth="−23 m" data-i18n="s8.1">Scene 08 · Off the clock</p>
 <h2 class="title rise" data-i18n="s8.2">Below the <em>surface</em>.</h2>
 <p class="lede rise" data-i18n="s8.3">Weekends I'm freediving with a speargun. Slow breathing, patience and reading the conditions: same skills, different office.</p>
 </div>
@@ -452,10 +607,10 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 <div class="card rise"><span class="mini-label" data-i18n="s8.6">Ocean rules</span><span class="mini-title" data-i18n="s8.7">Focus · Discipline · Respect · Safety</span></div>
 </aside>
 </section>
-<section aria-label="Scene 9, Contact" class="scene" data-bg="#F6EEDD" data-name="Say hi" data-ocean="#EAF6F4" data-tone="dark">
+<section aria-label="Scene 9, Contact" class="scene" data-bg="#F6EEDD" data-name="Say hi" data-ocean="#0C3E4C" data-depth="0.0" data-tone="dark">
 <span aria-hidden="true" class="bignum">09</span>
 <div class="copy">
-<p class="kicker rise" data-i18n="s9.1">Scene 09 · Resurface</p>
+<p class="kicker rise" data-depth="0 m" data-i18n="s9.1">Scene 09 · Resurface</p>
 <h2 class="title rise" data-i18n="s9.2">Let's <em>talk</em>.</h2>
 <p class="lede rise" data-i18n="s9.3">Open to senior IT leadership conversations: IT/OT transformation, cyber, cloud and AI-ready foundations.</p>
 <div class="contact-row rise">
@@ -525,7 +680,7 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
   document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
 
   function themeEmoji(i) {
-    return body.classList.contains("theme-ocean") ? ["🐠", "🫧", "🐙", "🌊"][i % 4] : ["🧋", "✦", "🧡", "☕"][i % 4];
+    return body.classList.contains("theme-ocean") ? "◦" : ["🧋", "✦", "🧡", "☕"][i % 4];
   }
   function buildMarquee() {
     const items = I18N.ui[lang].marquee;
@@ -589,11 +744,29 @@ body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(2
 
   function go(i) { window.scrollTo({ top: i * sceneH() + 2, behavior: reduce ? "auto" : "smooth" }); }
 
+  const hudVal = document.querySelector(".depth-hud .hud-val");
+  let shownDepth = 0, depthAnim = 0;
+  function animateDepth(target) {
+    cancelAnimationFrame(depthAnim);
+    const from = shownDepth, start = performance.now(), dur = reduce ? 0 : 900;
+    const step = now => {
+      const k = dur ? Math.min(1, (now - start) / dur) : 1;
+      shownDepth = from + (target - from) * (1 - Math.pow(1 - k, 3));
+      if (hudVal) hudVal.textContent = shownDepth.toFixed(1);
+      if (k < 1) depthAnim = requestAnimationFrame(step);
+    };
+    depthAnim = requestAnimationFrame(step);
+  }
   function applyBg() {
     const s = scenes[Math.max(current, 0)];
     const ocean = body.classList.contains("theme-ocean");
     body.style.backgroundColor = ocean ? s.dataset.ocean : s.dataset.bg;
-    body.classList.toggle("tone-light", ocean && s.dataset.tone === "light");
+    body.classList.remove("tone-light");
+    const depth = parseFloat(s.dataset.depth || "0");
+    body.style.setProperty("--rays", String(Math.max(0.12, 1 - depth / 23 * 0.88)));
+    const rail = document.querySelector(".depth-rail i");
+    if (rail) rail.style.setProperty("--dpos", `${(depth / 23) * 100}%`);
+    animateDepth(depth);
   }
 
   function activate(i) {
