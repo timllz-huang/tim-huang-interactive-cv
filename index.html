@@ -7,6 +7,14 @@
 <title>Tim Huang | Head of IT</title>
 <meta content="Runtian (Tim) Huang — Head of IT. A scroll story of 15+ years building resilient IT/OT systems." name="description"/>
 <meta content="#F6EEDD" name="theme-color"/>
+<link rel="canonical" href="https://timllz-huang.github.io/tim-huang-interactive-cv/"/>
+<meta property="og:type" content="profile"/>
+<meta property="og:title" content="Runtian (Tim) Huang | Head of IT"/>
+<meta property="og:description" content="15+ years leading IT/OT transformation, cybersecurity, cloud and infrastructure across energy, logistics and SaaS."/>
+<meta property="og:url" content="https://timllz-huang.github.io/tim-huang-interactive-cv/"/>
+<meta property="og:image" content="https://timllz-huang.github.io/tim-huang-interactive-cv/assets/underwater-hero.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232A1A0E'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='26' fill='%23FFD98E' text-anchor='middle'%3ETH%3C/text%3E%3C/svg%3E"/>
 <style>
 @font-face { font-family: "Lilita One"; src: url("assets/fonts/lilita-one-latin-400-normal.woff2") format("woff2"); font-display: swap; }
 @font-face { font-family: "Nunito"; font-weight: 600; src: url("assets/fonts/nunito-latin-600-normal.woff2") format("woff2"); font-display: swap; }
@@ -843,7 +851,8 @@ body.theme-ocean .depth-rail { display: block; position: fixed; left: 12px; top:
   setLang(params.get("lang") || savedLang || "en");
   const start = parseInt(params.get("scene") || "0", 10);
   if (start > 0) scrollTo(0, start * sceneH() + 2);
-  onScroll();
+  // activate synchronously so the first scene shows even if animation frames are paused
+  activate(Math.min(scenes.length - 1, Math.max(0, Math.floor(scrollY / sceneH()))));
 })();
 </script>
 </body>
