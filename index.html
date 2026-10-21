@@ -1,387 +1,677 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Interactive personal CV for Runtian Tim Huang, Head of IT.">
-    <title>Runtian (Tim) Huang | Head of IT</title>
-    <meta name="theme-color" content="#061313">
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="Runtian (Tim) Huang | Head of IT">
-    <meta property="og:description" content="15+ years leading IT/OT transformation, cybersecurity, cloud and infrastructure across energy, logistics and compliance sectors.">
-    <meta property="og:url" content="https://timllz-huang.github.io/tim-huang-interactive-cv/">
-    <meta property="og:image" content="https://timllz-huang.github.io/tim-huang-interactive-cv/assets/underwater-hero.webp">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061313'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c4ff2e' text-anchor='middle'%3ERH%3C/text%3E%3C/svg%3E">
-    <link rel="preload" href="assets/hero-loop.webp" as="image">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="progress-rail" aria-hidden="true">
-      <span>0m</span>
-      <div class="progress-track"><div class="progress-fill"></div></div>
-      <span>50m</span>
-    </div>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Tim Huang | Head of IT</title>
+<meta content="Runtian (Tim) Huang — Head of IT. A scroll story of 15+ years building resilient IT/OT systems." name="description"/>
+<meta content="#F6EEDD" name="theme-color"/>
+<style>
+@font-face { font-family: "Lilita One"; src: url("assets/fonts/lilita-one-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Nunito"; font-weight: 600; src: url("assets/fonts/nunito-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Nunito"; font-weight: 700; src: url("assets/fonts/nunito-latin-700-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Nunito"; font-weight: 800; src: url("assets/fonts/nunito-latin-800-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Nunito"; font-weight: 900; src: url("assets/fonts/nunito-latin-900-normal.woff2") format("woff2"); font-display: swap; }
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Runtian Huang home">RH</a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#profile">Profile</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#credentials">Credentials</a>
-        <a href="cv.html">Online CV</a>
-        <a href="#spearfishing">Spearfishing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button class="dive-toggle" type="button" aria-pressed="false" aria-label="Toggle Dive Mode">
-          <span class="toggle-orb"></span>
-          <span class="toggle-label">Dive Mode</span>
-        </button>
-        <button class="palette-button" type="button" aria-haspopup="dialog" aria-controls="commandPalette" aria-label="Open command menu">
-          <span class="kbd-label">Ctrl K</span><span class="menu-label">Menu</span>
-        </button>
-      </div>
-    </header>
+/* ---------- Theme A: warm (template default) ---------- */
+:root {
+  --cream: #F6EEDD;
+  --capy: #E8862E;
+  --capy-deep: #C96A1B;
+  --cocoa: #5C3A1E;
+  --ink: #2A1A0E;
+  --pink: #F2A9A0;
+  --pill: #FFD98E;
+  --fg: var(--cocoa);
+  --fg-soft: rgba(92, 58, 30, 0.78);
+  --card: #FFF8EC;
+  --card-line: rgba(42, 26, 14, 0.12);
+  --num: rgba(92, 58, 30, 0.08);
+  --shadow-title: 0 4px 0 rgba(232, 134, 46, 0.35);
+  --bg: #F9E4DC;
+  --sticker: "\2665";
+}
+/* ---------- Theme B: ocean ---------- */
+body.theme-ocean {
+  --cream: #EAF6F4;
+  --capy: #FF7A59;
+  --capy-deep: #E0522F;
+  --cocoa: #0E3B47;
+  --ink: #0B232B;
+  --pink: #FFB4A2;
+  --pill: #FFE08A;
+  --fg: var(--cocoa);
+  --fg-soft: rgba(14, 59, 71, 0.8);
+  --card: #FFFFFF;
+  --card-line: rgba(11, 35, 43, 0.12);
+  --num: rgba(14, 59, 71, 0.08);
+  --shadow-title: 0 4px 0 rgba(255, 122, 89, 0.35);
+  --sticker: "\2605";
+}
+body.theme-ocean.tone-light {
+  --fg: #F2FBFA;
+  --fg-soft: rgba(242, 251, 250, 0.82);
+  --card: rgba(255, 255, 255, 0.1);
+  --card-line: rgba(255, 255, 255, 0.2);
+  --num: rgba(255, 255, 255, 0.07);
+}
 
-    <main id="top">
-      <section class="hero" id="profile">
-        <img class="hero-motion" src="assets/hero-loop.webp" alt="" aria-hidden="true">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Strategic leader. Systems thinker. Ocean minded.</p>
-          <h1>Runtian<br>Huang</h1>
-          <div class="role-line">
-            <span></span>
-            <strong>Head of IT</strong>
-            <span></span>
-          </div>
-          <p class="hero-summary">15+ years driving IT and OT transformation across energy, logistics, and compliance sectors, with cloud-first architecture, cyber resilience, SCADA-aware infrastructure, and AI-ready data foundations.</p>
-          <div class="identity-row">
-            <span>Banpu Energy Australia</span>
-            <span>Sydney NSW</span>
-          </div>
-          <div class="hero-tags" data-filter-scope="hero" aria-label="Explore Tim Huang signals">
-            <button type="button" data-signal="it-ot">IT/OT Roadmap</button>
-            <button type="button" data-signal="essential-eight">Essential Eight</button>
-            <button type="button" data-signal="finops">FinOps</button>
-            <button type="button" data-signal="ai-cloud">AI Cloud</button>
-            <button type="button" data-signal="pmp">PMP</button>
-          </div>
-          <aside class="signal-panel reveal" id="signalPanel" aria-live="polite">
-            <p class="eyebrow">Selected signal</p>
-            <h3>Tap a category to surface the evidence.</h3>
-            <p>Each category reveals the related projects, certifications, and career experience across the page.</p>
-            <div class="signal-columns">
-              <div>
-                <span>Projects</span>
-                <strong id="signalProjects">Waiting for signal</strong>
-              </div>
-              <div>
-                <span>Credentials</span>
-                <strong id="signalCredentials">Waiting for signal</strong>
-              </div>
-              <div>
-                <span>Experience</span>
-                <strong id="signalExperience">Waiting for signal</strong>
-              </div>
-            </div>
-          </aside>
-        </div>
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--fg);
+  background: var(--bg);
+  transition: background-color 1s ease, color 0.6s ease;
+}
+a { color: inherit; }
+button { font: inherit; }
+:focus-visible { outline: 3px solid var(--capy-deep); outline-offset: 3px; border-radius: 8px; }
 
-        <aside class="command-panel reveal" aria-label="At a glance">
-          <p class="panel-label">Command Palette</p>
-          <button class="search-command" type="button">Type a command or jump to...</button>
-          <div class="quick-grid">
-            <button type="button" data-jump="#experience">Experience</button>
-            <button type="button" data-jump="#projects">Projects</button>
-            <button type="button" data-jump="#credentials">Credentials</button>
-            <a href="cv.html">Online CV</a>
-            <button type="button" data-jump="#spearfishing">Spearfishing</button>
-            <button type="button" data-jump="#contact">Contact</button>
-            <a class="quick-primary" href="assets/tim-huang-head-of-it-updated-cv.docx" download>Download CV</a>
-          </div>
-          <div class="glance">
-            <div><strong data-count="15" data-suffix="+">0</strong><span>Years leadership</span></div>
-            <div><strong data-count="90" data-suffix="%">0</strong><span>Workflow time saved</span></div>
-            <div><strong data-count="95" data-suffix="%">0</strong><span>Roadmap delivered</span></div>
-          </div>
-          <blockquote>Beneath the surface, clarity. Above it, impact.</blockquote>
-        </aside>
-      </section>
+/* ---------- top bar ---------- */
+.topbar {
+  position: fixed; inset: 18px 24px auto; z-index: 40;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
+}
+.logo {
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--ink); color: var(--pill); text-decoration: none;
+  font-family: "Lilita One"; font-size: 22px; transition: transform .35s cubic-bezier(.3,1.6,.5,1);
+}
+.logo:hover { transform: rotate(-12deg) scale(1.06); }
+.pillnav {
+  justify-self: center; display: flex; gap: 2px; padding: 6px; border-radius: 999px;
+  background: var(--ink); box-shadow: 0 8px 24px rgba(0,0,0,.14); max-width: 100%; overflow: hidden;
+}
+.pillnav button {
+  border: 0; background: transparent; color: rgba(255,255,255,.72); cursor: pointer;
+  padding: 9px 14px; border-radius: 999px; font-size: 13px; font-weight: 800; white-space: nowrap;
+  transition: background .3s, color .3s;
+}
+.pillnav button:hover { color: #fff; }
+.pillnav button.active { background: var(--pill); color: var(--ink); }
+.cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0; height: 48px; white-space: pre; text-decoration: none;
+  background: var(--capy); color: var(--ink); border: 3px solid var(--ink);
+  padding: 11px 18px; border-radius: 999px; font-weight: 900; font-size: 14px;
+  box-shadow: 0 4px 0 var(--ink); transition: transform .2s, box-shadow .2s;
+}
+.cta:hover { transform: translateY(-3px); box-shadow: 0 7px 0 var(--ink); }
 
-      <section class="ticker" aria-label="Career achievements">
-        <div class="ticker-track">
-          <span>Zero high severity security incidents for 4+ years</span>
-          <span>95% of Year 1 IT/OT roadmap delivered</span>
-          <span>90% onboarding and offboarding time saved</span>
-          <span>30% cloud operations cost savings achieved</span>
-          <span>Energy One private cloud maintained at 99.9% uptime</span>
-          <span>Meraki SDN transformation</span>
-          <span>AESCSF audit and SOCI-aware cyber uplift</span>
-        </div>
-      </section>
+/* ---------- scroll track + stage ---------- */
+.track { position: relative; }
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.scene {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, .78fr);
+  gap: clamp(24px, 3.4vw, 56px); align-items: center;
+  padding: 104px clamp(24px, 5vw, 80px) 132px;
+  opacity: 0; visibility: hidden;
+  transition: opacity .65s ease, visibility 0s linear .65s;
+}
+.scene.active { opacity: 1; visibility: visible; transition: opacity .65s ease, visibility 0s; }
+.bignum {
+  position: absolute; z-index: 0; right: 4vw; top: 50%;
+  font-family: "Lilita One"; font-size: clamp(220px, 34vw, 520px); line-height: .8;
+  color: var(--num); translate: var(--nx, 0) calc(-50% + var(--ny, 0px)); pointer-events: none; user-select: none;
+}
+.copy, .media, .side { position: relative; z-index: 1; }
+.copy { translate: var(--cx, 0) var(--cy, 0); }
+.kicker {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px;
+  padding: 6px 12px; border-radius: 999px; background: var(--pill); color: var(--ink);
+  font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+}
+.title {
+  margin: 0 0 18px; font-family: "Lilita One"; font-weight: 400; text-transform: uppercase;
+  font-size: clamp(46px, 5.6vw, 96px); line-height: .92; letter-spacing: .005em;
+  color: var(--fg); text-shadow: var(--shadow-title);
+}
+.title em { font-style: normal; color: var(--capy-deep); }
+body.theme-ocean.tone-light .title em { color: var(--pill); }
+body.tone-light .pillnav, body.tone-light .dots, body.tone-light .marquee { box-shadow: 0 0 0 1px rgba(255,255,255,.22); }
+body.tone-light .logo { box-shadow: 0 0 0 1px rgba(255,255,255,.3); }
+.lede { margin: 0 0 22px; max-width: 34ch; font-size: clamp(16px, 1.25vw, 19px); line-height: 1.55; font-weight: 700; color: var(--fg-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 7px 12px; border-radius: 999px; border: 2px solid var(--card-line); background: var(--card);
+  font-size: 13px; font-weight: 800;
+}
 
-      <section class="world section-pad">
-        <div class="section-intro reveal">
-          <p class="eyebrow">Explore my world</p>
-          <h2>Filter the signal.</h2>
-          <p>Jump between the systems I build, secure, automate, and optimise.</p>
-        </div>
-        <div class="filter-bar reveal" role="group" aria-label="Filter expertise">
-          <button class="active" type="button" data-filter="all">All zones</button>
-          <button type="button" data-filter="cybersecurity">Cybersecurity</button>
-          <button type="button" data-filter="cloud">Cloud</button>
-          <button type="button" data-filter="it-ot">IT/OT</button>
-          <button type="button" data-filter="ai-cloud">AI Cloud</button>
-          <button type="button" data-filter="infrastructure">Infrastructure</button>
-          <button type="button" data-filter="energy">Energy OT</button>
-          <button type="button" data-filter="enterprise">Enterprise Systems</button>
-          <button type="button" data-filter="delivery">Delivery</button>
-        </div>
-      </section>
+/* line-by-line entrance */
+.scene .rise { opacity: 0; transform: translateY(26px); }
+.scene.active .rise { animation: rise .7s cubic-bezier(.2,.9,.3,1) forwards; }
+.scene.active .rise:nth-child(2) { animation-delay: .08s; }
+.scene.active .rise:nth-child(3) { animation-delay: .16s; }
+.scene.active .rise:nth-child(4) { animation-delay: .24s; }
+.scene.active .rise:nth-child(5) { animation-delay: .32s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
 
-      <section class="projects section-pad" id="projects">
-        <div class="section-intro reveal">
-          <p class="eyebrow">Expedition logs</p>
-          <h2>Missions that moved the business.</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card project-card-ai reveal" data-category="cloud delivery ai-cloud" tabindex="0">
-            <div class="project-face project-front">
-              <span>01</span>
-              <h3>Hybrid cloud AI foundation</h3>
-              <p>Designed cloud architecture and data streaming into Azure Data Factory for AI-driven asset performance modelling.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>AI-ready energy data layer</h3>
-              <p>Proposed a hybrid cloud model that connects asset telemetry into Azure Data Factory, creating the foundation for performance modelling, decision support, and scalable renewable energy operations.</p>
-              <strong>Azure Data Factory / Hybrid cloud / Asset telemetry</strong>
-            </div>
-          </article>
-          <article class="project-card project-card-cyber reveal" data-category="cybersecurity energy essential-eight it-ot" tabindex="0">
-            <div class="project-face project-front">
-              <span>02</span>
-              <h3>IT/OT cyber uplift</h3>
-              <p>Advanced Essential Eight initiatives, SOCI planning, AESCSF audit participation, and Dragos evaluation for SCADA-integrated sites.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>Cyber maturity across critical assets</h3>
-              <p>Led cyber uplift across IT and OT environments, balancing compliance, audit readiness, threat monitoring, and practical controls for SCADA-integrated solar infrastructure.</p>
-              <strong>Essential Eight / SOCI / AESCSF / Dragos</strong>
-            </div>
-          </article>
-          <article class="project-card project-card-finops reveal" data-category="cloud delivery finops" tabindex="0">
-            <div class="project-face project-front">
-              <span>03</span>
-              <h3>FinOps optimisation</h3>
-              <p>Achieved 30% cloud operations savings, with a further 20-30% target through reserved instances, workload tuning, and license consolidation.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>Cloud spend with operating discipline</h3>
-              <p>Reduced cloud operating cost while keeping service reliability intact, using workload review, reserved capacity, licence consolidation, and governance conversations with stakeholders.</p>
-              <strong>30% saved / Reserved instances / Licence governance</strong>
-            </div>
-          </article>
-          <article class="project-card project-card-meraki reveal" data-category="infrastructure ccnp mcse it-ot" tabindex="0">
-            <div class="project-face project-front">
-              <span>04</span>
-              <h3>Meraki segmentation</h3>
-              <p>Deployed Meraki SDN, VLANs, QoS, and centralised management to support OT isolation and secure asset connectivity.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>Network control for OT isolation</h3>
-              <p>Moved the network toward a more observable, segmented, and centrally managed model, supporting secure asset connectivity, quality of service, and operational resilience.</p>
-              <strong>Meraki SDN / VLANs / QoS / OT isolation</strong>
-            </div>
-          </article>
-          <article class="project-card project-card-automation reveal" data-category="delivery pmp automation" tabindex="0">
-            <div class="project-face project-front">
-              <span>05</span>
-              <h3>Lifecycle automation</h3>
-              <p>Built Power Automate and SharePoint onboarding/offboarding workflows, reducing manual process effort by 90%.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>From manual handoffs to governed flow</h3>
-              <p>Connected HR and IT workflows through SharePoint, M365, and Power Automate, improving identity lifecycle control, audit readiness, and staff onboarding speed.</p>
-              <strong>90% time saved / M365 / SharePoint / Power Automate</strong>
-            </div>
-          </article>
-          <article class="project-card project-card-enterprise reveal" data-category="enterprise delivery" tabindex="0">
-            <div class="project-face project-front">
-              <span>06</span>
-              <h3>Enterprise systems governance</h3>
-              <p>Managed Energy One private cloud, SAP ERP, WMS, and multi-vendor delivery across IT, OT, cyber, SCADA, and asset platforms.</p>
-            </div>
-            <div class="project-face project-back">
-              <span>Mission brief</span>
-              <h3>Keeping business platforms dependable</h3>
-              <p>Governed vendor delivery across trading, ERP, warehouse, cyber, and asset systems, maintaining Energy One private cloud uptime and aligning platforms to business operations.</p>
-              <strong>99.9% uptime / SAP / WMS / Vendor governance</strong>
-            </div>
-          </article>
-        </div>
-      </section>
+/* ---------- media ---------- */
+.media { display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; height: 100%; max-height: 64vh; min-width: 0; }
+.media-inner { translate: var(--mx, 0) var(--my, 0); width: 100%; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; }
+.character { width: min(100%, 440px); mix-blend-mode: multiply; animation: breathe 4.5s ease-in-out infinite; }
+.character img { display: block; width: 100%; height: auto; }
+@keyframes breathe { 50% { transform: scale(1.035) translateY(-6px); } }
+.frame {
+  position: relative; width: min(92%, 540px); padding: 12px 12px 14px; border-radius: 26px;
+  background: #fff; box-shadow: 0 22px 50px rgba(42, 26, 14, .22), 0 3px 0 rgba(42,26,14,.08);
+  rotate: -1.5deg; mix-blend-mode: normal;
+}
+.frame.tilt-r { rotate: 1.8deg; }
+.frame img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
+.frame.tall img { aspect-ratio: 4 / 5; }
+.frame figcaption { padding: 10px 6px 0; font-size: 13px; font-weight: 800; color: #6b5a4a; }
+body.theme-ocean .frame figcaption { color: #3f5d65; }
+.sticker {
+  position: absolute; right: -16px; top: -16px; width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--pink); border: 3px solid var(--ink);
+  color: var(--ink); font-size: 22px; rotate: 14deg; box-shadow: 0 4px 0 var(--ink);
+}
+.sticker::before { content: var(--sticker); }
 
-      <section class="timeline section-pad" id="experience">
-        <div class="section-intro reveal">
-          <p class="eyebrow">Career depth map</p>
-          <h2>A journey of building resilient systems that scale.</h2>
-        </div>
-        <div class="career-dive-band reveal" aria-label="Career dive profile">
-          <div class="dive-band-copy">
-            <p class="eyebrow">Career dive profile</p>
-            <span>15+ years navigating complex environments.</span>
-          </div>
-          <div class="dive-path" aria-hidden="true">
-            <span></span>
-          </div>
-          <div class="dive-profile-points">
-            <button class="dive-profile-node" type="button" data-panel="wta">
-              <strong>2009</strong>
-              <span>Start</span>
-            </button>
-            <button class="dive-profile-node" type="button" data-panel="ideagen-admin">
-              <strong>2012</strong>
-              <span>Level up</span>
-            </button>
-            <button class="dive-profile-node" type="button" data-panel="ideagen-manager">
-              <strong>2018</strong>
-              <span>Take the lead</span>
-            </button>
-            <button class="dive-profile-node" type="button" data-panel="anspec">
-              <strong>2022</strong>
-              <span>Operations</span>
-            </button>
-            <button class="dive-profile-node active" type="button" data-panel="banpu">
-              <strong>Present</strong>
-              <span>Continue the dive</span>
-            </button>
-          </div>
-        </div>
-        <div class="timeline-line reveal">
-          <button class="timeline-node active" data-panel="banpu" data-category="essential-eight finops cloud energy it-ot ai-cloud"><span>2023</span>Banpu Energy Australia</button>
-          <button class="timeline-node" data-panel="anspec" data-category="essential-eight infrastructure delivery enterprise pmp"><span>2022</span>Anspec</button>
-          <button class="timeline-node" data-panel="ideagen-manager" data-category="cloud cybersecurity delivery enterprise"><span>2018</span>Ideagen</button>
-          <button class="timeline-node" data-panel="ideagen-admin" data-category="ccnp mcse infrastructure cloud"><span>2012</span>Senior systems</button>
-          <button class="timeline-node" data-panel="wta" data-category="infrastructure ccnp mcse"><span>2009</span>W.T.A foundation</button>
-        </div>
-        <div class="experience-panel reveal" id="experiencePanel">
-          <h3>Head of IT - Banpu Energy Australia</h3>
-          <p>Leading IT/OT transformation, cyber maturity uplift, cloud optimisation, Energy One operations, Meraki segmentation, and executive-level strategy across renewable energy infrastructure.</p>
-        </div>
-      </section>
+/* ---------- side cards ---------- */
+.side { display: grid; gap: 14px; align-content: center; translate: var(--cx, 0) var(--cy, 0); }
+.card {
+  padding: 22px; border-radius: 24px; background: var(--card); border: 2px solid var(--card-line);
+  box-shadow: 0 10px 26px rgba(42, 26, 14, .08);
+}
+.stat-num { display: block; font-family: "Lilita One"; font-size: clamp(54px, 5vw, 84px); line-height: .9; color: var(--capy-deep); }
+body.theme-ocean.tone-light .stat-num { color: var(--pill); }
+.stat-label { display: block; margin-top: 8px; font-size: 15px; font-weight: 800; color: var(--fg-soft); }
+.mini-label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--capy-deep); }
+body.theme-ocean.tone-light .mini-label { color: var(--pill); }
+.mini-title { display: block; font-size: 18px; font-weight: 900; line-height: 1.3; }
 
-      <section class="expertise section-pad" id="credentials">
-        <div class="section-intro reveal">
-          <p class="eyebrow">Core expertise</p>
-          <h2>Technical range with leadership discipline.</h2>
-        </div>
-        <div class="expertise-grid">
-          <article class="reveal" data-category="cybersecurity essential-eight security-plus">
-            <h3>Cybersecurity</h3>
-            <p>Essential Eight, NIST, SOCI awareness, AESCSF audit participation, KnowBe4 awareness, OT monitoring evaluation, and cyber governance.</p>
-          </article>
-          <article class="reveal" data-category="cloud finops ai-cloud">
-            <h3>Cloud & Platform</h3>
-            <p>Azure, AWS, M365 E5, Intune, private cloud, Azure Data Factory, hybrid architecture, governance, and FinOps.</p>
-          </article>
-          <article class="reveal" data-category="infrastructure ccnp mcse">
-            <h3>Infrastructure</h3>
-            <p>Cisco, Meraki, Aruba, VLANs, VPNs, SD-WAN, VMware, Hyper-V, monitoring, DR design, and enterprise support.</p>
-          </article>
-          <article class="reveal" data-category="energy it-ot">
-            <h3>Energy OT</h3>
-            <p>SCADA/OT integration, network segmentation, solar site resilience, asset data streaming, Energy One, and renewable energy operations.</p>
-          </article>
-          <article class="reveal" data-category="delivery pmp enterprise">
-            <h3>Leadership</h3>
-            <p>Executive communication, vendor governance, budgeting, forecasting, contract management, team development, and roadmap delivery.</p>
-          </article>
-        </div>
-        <div class="credential-drawer reveal">
-          <button type="button" class="drawer-toggle" aria-expanded="false">Open certification drawer</button>
-          <div class="drawer-content">
-            <span data-category="cloud finops ai-cloud">AWS Solutions Architect Associate</span>
-            <span data-category="cloud delivery">AWS DevOps Associate</span>
-            <span data-category="cloud">AWS SysOps Associate</span>
-            <span data-category="infrastructure ccnp">CCNP Routing & Switching</span>
-            <span data-category="cybersecurity ccnp">CCNP Security</span>
-            <span data-category="cybersecurity security-plus essential-eight">CompTIA Security+</span>
-            <span data-category="cybersecurity">CompTIA A+</span>
-            <span data-category="infrastructure mcse">MCSE Server Infrastructure</span>
-            <span data-category="infrastructure mcse">MCITP Server Administrator</span>
-            <span data-category="infrastructure">CompTIA Linux+</span>
-            <span data-category="delivery pmp">PMP</span>
-            <span data-category="delivery pmp">ITIL Foundation</span>
-            <span data-category="delivery">Salesforce Administrator</span>
-            <span data-category="cybersecurity">In progress: CISSP</span>
-            <span data-category="cybersecurity">In progress: OSCP</span>
-            <span data-category="cloud ai-cloud">In progress: AWS SA-Pro</span>
-          </div>
-        </div>
-      </section>
+/* ---------- final scene ---------- */
+.polaroids { position: relative; width: 100%; height: min(56vh, 460px); }
+.polaroid {
+  position: absolute; width: 42%; padding: 10px 10px 34px; background: #fff; border-radius: 6px;
+  box-shadow: 0 16px 34px rgba(42,26,14,.22); transition: transform .35s cubic-bezier(.3,1.4,.5,1), z-index 0s;
+  translate: var(--mx, 0) var(--my, 0);
+}
+.polaroid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.polaroid span { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font-size: 12px; font-weight: 900; color: #6b5a4a; }
+.polaroid:nth-child(1) { left: 2%; top: 0; transform: rotate(-7deg); }
+.polaroid:nth-child(2) { right: 2%; top: 5%; transform: rotate(6deg); }
+.polaroid:nth-child(3) { left: 6%; bottom: 0; transform: rotate(5deg); }
+.polaroid:nth-child(4) { right: 6%; bottom: 3%; transform: rotate(-4deg); }
+.polaroid:hover { transform: rotate(0) scale(1.12); z-index: 5; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; padding: 12px 18px; border-radius: 999px; text-decoration: none;
+  background: var(--ink); color: var(--pill); font-weight: 900; font-size: 15px; transition: transform .2s;
+}
+.btn.alt { background: transparent; color: var(--fg); border: 2.5px solid currentColor; }
+.btn:hover { transform: translateY(-3px); }
+.dedication { font-family: "Lilita One"; font-size: 22px; line-height: 1.2; color: var(--capy-deep); margin: 0; }
 
-      <section class="spearfishing section-pad" id="spearfishing">
-        <div class="spearfishing-copy reveal">
-          <p class="eyebrow">Spearfishing</p>
-          <h2>Depth, patience, precision.</h2>
-          <p>Spearfishing brings a personal layer to the site: calm under pressure, respect for conditions, and the discipline to read what is happening beneath the surface.</p>
-          <button class="ripple-button" type="button">Send a sonar ping</button>
-        </div>
-        <div class="depth-card reveal">
-          <span>23m</span>
-          <p>Focus below the surface. Leadership above it.</p>
-          <div class="sonar" aria-hidden="true"></div>
-        </div>
-      </section>
+/* ---------- bottom: dots + marquee ---------- */
+.dots {
+  position: fixed; left: 50%; bottom: 62px; z-index: 40; translate: -50% 0;
+  display: flex; gap: 10px; padding: 8px 12px; border-radius: 999px; background: var(--ink);
+}
+.dots button { width: 12px; height: 12px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.35); cursor: pointer; transition: width .35s, background .35s; }
+.dots button.active { width: 30px; background: var(--pill); }
+.marquee {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 39; height: 46px; overflow: hidden;
+  display: flex; align-items: center; background: var(--ink); color: var(--pill);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track { display: flex; width: max-content; animation: marquee 90s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span { display: inline-flex; align-items: center; gap: 22px; padding-right: 22px; white-space: nowrap; font-size: 14px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.bob { display: inline-block; animation: bob 1.6s ease-in-out infinite; }
+.bob:nth-of-type(2n) { animation-delay: .4s; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
 
-      <section class="contact section-pad" id="contact">
-        <div class="section-intro reveal">
-          <p class="eyebrow">Surface</p>
-          <h2>Let's connect.</h2>
-          <p>Open to senior IT leadership conversations across IT/OT transformation, cybersecurity, cloud architecture, infrastructure resilience, and AI-ready digital foundations.</p>
-        </div>
-        <a class="contact-email reveal" href="mailto:timllz83@gmail.com">timllz83@gmail.com</a>
-        <div class="contact-actions reveal">
-          <a href="https://www.linkedin.com/in/runtian-huang-58751455/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:timllz83@gmail.com?subject=IT%20leadership%20conversation%20with%20Tim%20Huang">Email</a>
-          <a href="cv.html">Online CV</a>
-          <a href="assets/tim-huang-head-of-it-updated-cv.docx" download>Head of IT CV</a>
-          <a href="assets/tim-huang-cio-cv.docx" download>CIO CV</a>
-        </div>
-      </section>
-    </main>
+/* ---------- cursor particles ---------- */
+.particle { position: fixed; z-index: 60; pointer-events: none; border-radius: 50%; animation: floatUp 1.1s ease-out forwards; }
+.particle.pearl { background: radial-gradient(circle at 35% 30%, #8a5a36, #2A1A0E 70%); }
+.particle.bubble { border: 2px solid rgba(16, 183, 201, .85); background: rgba(255,255,255,.35); }
+.particle.star { border-radius: 0; color: var(--capy); font-size: 14px; line-height: 1; }
+@keyframes floatUp { to { transform: translate(var(--dx), -60px) scale(.6); opacity: 0; } }
 
-    <dialog class="command-dialog" id="commandPalette">
-      <form method="dialog">
-        <div class="dialog-head">
-          <strong>Command Palette</strong>
-          <button type="submit">Close</button>
-        </div>
-        <input type="search" placeholder="Type: projects, credentials, download..." aria-label="Command search" autocomplete="off">
-        <div class="command-list">
-          <button value="experience" data-jump="#experience">Experience</button>
-          <button value="projects" data-jump="#projects">Projects</button>
-          <button value="credentials" data-jump="#credentials">Credentials</button>
-          <button value="cv" data-link="cv.html">Online CV</button>
-          <button value="spearfishing" data-jump="#spearfishing">Spearfishing</button>
-          <button value="contact" data-jump="#contact">Contact</button>
-          <button value="download cv resume docx" data-link="assets/tim-huang-head-of-it-updated-cv.docx">Download Head of IT CV</button>
-          <button value="download cio cv resume docx" data-link="assets/tim-huang-cio-cv.docx">Download CIO CV</button>
-          <button value="email contact mail" data-link="mailto:timllz83@gmail.com">Email Tim</button>
-          <button value="linkedin social" data-link="https://www.linkedin.com/in/runtian-huang-58751455/">LinkedIn</button>
-          <p class="command-empty" hidden>No matches. Try “projects” or “cv”.</p>
-        </div>
-      </form>
-    </dialog>
+/* mockup-only theme switch */
+/* theme toggle: label shows the theme you will switch TO */
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.theme-toggle {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  height: 48px; padding: 0 16px 0 6px; border-radius: 999px; border: 3px solid var(--ink);
+  background: var(--pill); color: var(--ink); font-weight: 900; font-size: 15px;
+  box-shadow: 0 4px 0 var(--ink); transition: transform .2s, box-shadow .2s;
+  font-family: "Nunito", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+.theme-toggle:hover, .lang-toggle:hover { transform: translateY(-3px); box-shadow: 0 7px 0 var(--ink); }
+.lang-toggle {
+  height: 48px; min-width: 64px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  border: 3px solid var(--ink); background: var(--card); color: var(--ink);
+  font-family: "Nunito", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; font-weight: 900; font-size: 15px;
+  box-shadow: 0 4px 0 var(--ink); transition: transform .2s, box-shadow .2s;
+}
+body.tone-light .lang-toggle { background: #fff; }
+/* Chinese mode: CJK fallback fonts, slightly smaller display type */
+html[lang="zh-CN"] body { font-family: "Nunito", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+html[lang="zh-CN"] .title { font-family: "Lilita One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 900; font-size: clamp(40px, 4.6vw, 80px); line-height: 1.12; letter-spacing: .02em; }
+html[lang="zh-CN"] .dedication { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-weight: 900; }
+html[lang="zh-CN"] .lede { max-width: 26em; }
+html[lang="zh-CN"] .kicker, html[lang="zh-CN"] .mini-label { letter-spacing: .04em; }
+.theme-toggle:active { transform: translateY(1px); box-shadow: 0 2px 0 var(--ink); }
+.theme-toggle .toggle-icon {
+  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--ink); font-size: 16px; line-height: 1; transition: transform .5s cubic-bezier(.3,1.6,.5,1);
+}
+.theme-toggle:hover .toggle-icon { transform: rotate(-18deg) scale(1.08); }
+body.tone-light .theme-toggle { box-shadow: 0 4px 0 var(--ink), 0 0 0 1px rgba(255,255,255,.3); }
 
-    <script src="script.js"></script>
-  </body>
+/* ---------- responsive ---------- */
+@media (max-width: 1180px) {
+  .pillnav button { padding: 9px 10px; font-size: 12px; }
+}
+@media (max-width: 1024px) {
+  .scene { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; align-content: center; }
+  .side { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .pillnav { display: none; }
+  .topbar { grid-template-columns: auto 1fr auto; }
+  .now-label { display: block !important; justify-self: center; }
+}
+@media (max-width: 680px) {
+  .topbar { inset: 12px 14px auto; }
+  .logo { width: 44px; height: 44px; font-size: 18px; }
+  .cta { padding: 9px 14px; font-size: 13px; }
+  .scene {
+    grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start;
+    padding: 76px 20px 120px;
+  }
+  .media { order: -1; max-height: 34vh; }
+  .character { width: min(62vw, 250px); }
+  .frame { width: min(84vw, 360px); padding: 8px 8px 10px; border-radius: 20px; }
+  .frame img { aspect-ratio: 16 / 10; }
+  .frame.tall img { aspect-ratio: 16 / 10; }
+  .frame figcaption, .sticker { display: none; }
+  .bignum { font-size: 52vw; top: 30%; right: -2vw; }
+  .title { font-size: clamp(32px, 10vw, 48px); margin-bottom: 10px; overflow-wrap: break-word; }
+  .kicker { margin-bottom: 10px; }
+  .lede { font-size: 15px; margin-bottom: 0; }
+  .side { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { padding: 14px; border-radius: 18px; }
+  .stat-num { font-size: 40px; }
+  .stat-label, .mini-title { font-size: 13px; }
+  .chips { display: none; }
+  .polaroids { height: 30vh; }
+  .polaroid { width: 40%; }
+  .dots { bottom: 54px; gap: 7px; }
+  .dots button { width: 9px; height: 9px; }
+  .dots button.active { width: 22px; }
+  .marquee { height: 40px; }
+  .top-actions { gap: 6px; }
+  .theme-toggle { height: 40px; padding: 0 10px 0 4px; font-size: 13px; gap: 5px; border-width: 2.5px; }
+  .lang-toggle { height: 40px; min-width: 0; padding: 0 10px; font-size: 13px; border-width: 2.5px; }
+  html[lang="zh-CN"] .title { font-size: clamp(30px, 9vw, 42px); }
+  .cta { height: 40px; min-width: 52px; }
+  .theme-toggle .toggle-icon { width: 26px; height: 26px; font-size: 14px; }
+  .cta .cta-long { display: none; }
+  .now-label { font-size: 13px; }
+  .side { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 430px) {
+  .topbar { grid-template-columns: auto 1fr; }
+  .now-label { display: none !important; }
+  .top-actions { justify-self: end; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .scene .rise { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a aria-label="Back to start" class="logo" data-go="0" href="#">TH</a>
+<nav aria-label="Scenes" class="pillnav"></nav>
+<span class="now-label" style="display:none"></span>
+<div class="top-actions">
+    <button class="lang-toggle" type="button" lang="zh-CN" aria-label="切换到中文">中文</button>
+    <button class="theme-toggle" type="button" aria-label="Switch to Deep Sea theme">
+      <span class="toggle-icon" aria-hidden="true">🌊</span><span class="toggle-text">Deep Sea</span>
+    </button>
+<a class="cta" download="" href="assets/tim-huang-head-of-it-updated-cv.docx"><span class="cta-long">Download</span> CV</a>
+</div>
+</header>
+<div class="track" id="track"></div>
+<main class="stage" id="stage">
+<section aria-label="Scene 1, Hello" class="scene" data-bg="#F9E4DC" data-name="Hello" data-ocean="#EAF6F4" data-tone="dark">
+<span aria-hidden="true" class="bignum">01</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s1.1">Scene 01 · Hello</p>
+<h1 class="title rise" data-i18n="s1.2">Hi, I'm <em>Tim</em>.<br/>I keep the lights on.</h1>
+<p class="lede rise" data-i18n="s1.3">Runtian Huang, Head of IT at Banpu Energy Australia. Networks, cloud, cyber and the OT bits in between, keeping renewable energy running safely.</p>
+<div class="chips rise"><span class="chip">IT/OT</span><span class="chip">Cyber</span><span class="chip">Cloud</span><span class="chip">AI-ready data</span></div>
+</div>
+<div class="media"><div class="media-inner"><div class="character"><img alt="Cartoon Tim in a dive mask (placeholder)" src="assets/avatar-placeholder.svg"/></div></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s1.4">15+</span><span class="stat-label" data-i18n="s1.5">years leading IT teams and infrastructure</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s1.6">Based in</span><span class="mini-title" data-i18n="s1.7">Sydney NSW · Energy, logistics &amp; SaaS</span></div>
+</aside>
+</section>
+<section aria-label="Scene 2, 2009" class="scene" data-bg="#F6EEDD" data-name="2009" data-ocean="#D7EFEC" data-tone="dark">
+<span aria-hidden="true" class="bignum">02</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s2.1">Scene 02 · 2009 to 2012</p>
+<h2 class="title rise" data-i18n="s2.2">Where the <em>dive</em> began.</h2>
+<p class="lede rise" data-i18n="s2.3">W.T.A International Trading. Linux, Windows, SANs, VPNs, PBX phones. If it blinked, I fixed it.</p>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame"><span aria-hidden="true" class="sticker"></span><img alt="Network infrastructure illustration" src="assets/project-meraki-segmentation.webp"/><figcaption data-i18n="s2.8">First server room energy</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s2.4">2009</span><span class="stat-label" data-i18n="s2.5">first network I owned end to end</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s2.6">Role</span><span class="mini-title" data-i18n="s2.7">Network Systems Administrator</span></div>
+</aside>
+</section>
+<section aria-label="Scene 3, Level up" class="scene" data-bg="#F5E7CC" data-name="Level up" data-ocean="#BFE5E0" data-tone="dark">
+<span aria-hidden="true" class="bignum">03</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s3.1">Scene 03 · 2012 to 2022</p>
+<h2 class="title rise" data-i18n="s3.2">Levelling <em>up</em> in the cloud.</h2>
+<p class="lede rise" data-i18n="s3.3">Ideagen / CompliSpace. Moved everything from on-prem to Azure and Office 365, built DR, then led infrastructure for a growing SaaS business.</p>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame tilt-r"><span aria-hidden="true" class="sticker"></span><img alt="Cloud architecture illustration" src="assets/project-hybrid-cloud-ai.webp"/><figcaption data-i18n="s3.8">On-prem → Azure, one weekend at a time</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s3.4">10 yrs</span><span class="stat-label" data-i18n="s3.5">sys admin → infrastructure manager</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s3.6">Toolkit</span><span class="mini-title" data-i18n="s3.7">Azure · O365 · Aruba SDN · Intune</span></div>
+</aside>
+</section>
+<section aria-label="Scene 4, Taking the lead" class="scene" data-bg="#F2DDB8" data-name="Lead" data-ocean="#93D0CC" data-tone="dark">
+<span aria-hidden="true" class="bignum">04</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s4.1">Scene 04 · 2022 to 2023</p>
+<h2 class="title rise" data-i18n="s4.2">Taking the <em>lead</em>.</h2>
+<p class="lede rise" data-i18n="s4.3">IT Operations Manager at Anspec. Healthcare distribution and logistics: ISO 9001, SAP ERP, warehouse systems, and a real BCP/DRP.</p>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame"><span aria-hidden="true" class="sticker"></span><img alt="Enterprise systems illustration" src="assets/project-enterprise-systems.webp"/><figcaption data-i18n="s4.8">ERP, WMS and a lot of vendors</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s4.4">0 → 1</span><span class="stat-label" data-i18n="s4.5">cyber maturity level lifted</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s4.6">Shipped</span><span class="mini-title" data-i18n="s4.7">ISO 9001 · SAP · WMS · BCP/DRP</span></div>
+</aside>
+</section>
+<section aria-label="Scene 5, Head of IT now" class="scene" data-bg="#ECD3AC" data-name="Now" data-ocean="#4E9FA8" data-tone="light">
+<span aria-hidden="true" class="bignum">05</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s5.1">Scene 05 · 2023 to now</p>
+<h2 class="title rise" data-i18n="s5.2">Head of IT, <em>energy</em> edition.</h2>
+<p class="lede rise" data-i18n="s5.3">Banpu Energy Australia. Solar farms, batteries and SCADA, plus the cyber controls that keep critical infrastructure safe.</p>
+<div class="chips rise"><span class="chip">Essential Eight</span><span class="chip">SOCI</span><span class="chip">AESCSF</span><span class="chip">Dragos</span></div>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame tilt-r"><span aria-hidden="true" class="sticker"></span><img alt="IT/OT cybersecurity illustration" src="assets/project-it-ot-cyber.webp"/><figcaption data-i18n="s5.8">IT meets OT, safely</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s5.4">95%</span><span class="stat-label" data-i18n="s5.5">of the Year 1 IT/OT roadmap delivered</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s5.6">Track record</span><span class="mini-title" data-i18n="s5.7">Zero high-severity incidents, 4+ years</span></div>
+</aside>
+</section>
+<section aria-label="Scene 6, Wins" class="scene" data-bg="#E5C9A0" data-name="Wins" data-ocean="#2E7482" data-tone="light">
+<span aria-hidden="true" class="bignum">06</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s6.1">Scene 06 · Wins</p>
+<h2 class="title rise" data-i18n="s6.2">Small team, <em>big</em> wins.</h2>
+<p class="lede rise" data-i18n="s6.3">Automated the boring bits, trimmed the cloud bill, and kept the trading platform up when it mattered.</p>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame"><span aria-hidden="true" class="sticker"></span><img alt="Workflow automation illustration" src="assets/project-lifecycle-automation.webp"/><figcaption data-i18n="s6.8">Power Automate doing the paperwork</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s6.4">90%</span><span class="stat-label" data-i18n="s6.5">less onboarding and offboarding admin</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s6.6">Also</span><span class="mini-title" data-i18n="s6.7">30% cloud savings · 99.9% uptime</span></div>
+</aside>
+</section>
+<section aria-label="Scene 7, Toolkit" class="scene" data-bg="#DCBE96" data-name="Toolkit" data-ocean="#1B5866" data-tone="light">
+<span aria-hidden="true" class="bignum">07</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s7.1">Scene 07 · Toolkit</p>
+<h2 class="title rise" data-i18n="s7.2">My <em>toolkit</em>.</h2>
+<p class="lede rise" data-i18n="s7.3">Certified across cloud, networking, security and delivery, and still collecting.</p>
+<div class="chips rise"><span class="chip">AWS ×3</span><span class="chip">CCNP R&amp;S</span><span class="chip">CCNP Security</span><span class="chip">Security+</span><span class="chip">MCSE</span><span class="chip">PMP</span><span class="chip">ITIL</span></div>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame tilt-r"><span aria-hidden="true" class="sticker"></span><img alt="Cloud cost optimisation illustration" src="assets/project-finops.webp"/><figcaption data-i18n="s7.8">FinOps: same cloud, smaller bill</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s7.4">13</span><span class="stat-label" data-i18n="s7.5">certifications, with 3 more in progress</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s7.6">Next up</span><span class="mini-title" data-i18n="s7.7">CISSP · OSCP · AWS SA-Pro</span></div>
+</aside>
+</section>
+<section aria-label="Scene 8, Below the surface" class="scene" data-bg="#D2AE88" data-name="Deep" data-ocean="#0E3440" data-tone="light">
+<span aria-hidden="true" class="bignum">08</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s8.1">Scene 08 · Off the clock</p>
+<h2 class="title rise" data-i18n="s8.2">Below the <em>surface</em>.</h2>
+<p class="lede rise" data-i18n="s8.3">Weekends I'm freediving with a speargun. Slow breathing, patience and reading the conditions: same skills, different office.</p>
+</div>
+<div class="media"><div class="media-inner"><figure class="frame tall"><span aria-hidden="true" class="sticker"></span><img alt="Underwater spearfisher silhouette" src="assets/cv-spearfishing-focused.webp"/><figcaption data-i18n="s8.8">Calm is a skill</figcaption></figure></div></div>
+<aside class="side">
+<div class="card rise"><span class="stat-num" data-i18n="s8.4">23m</span><span class="stat-label" data-i18n="s8.5">on a single breath</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s8.6">Ocean rules</span><span class="mini-title" data-i18n="s8.7">Focus · Discipline · Respect · Safety</span></div>
+</aside>
+</section>
+<section aria-label="Scene 9, Contact" class="scene" data-bg="#F6EEDD" data-name="Say hi" data-ocean="#EAF6F4" data-tone="dark">
+<span aria-hidden="true" class="bignum">09</span>
+<div class="copy">
+<p class="kicker rise" data-i18n="s9.1">Scene 09 · Resurface</p>
+<h2 class="title rise" data-i18n="s9.2">Let's <em>talk</em>.</h2>
+<p class="lede rise" data-i18n="s9.3">Open to senior IT leadership conversations: IT/OT transformation, cyber, cloud and AI-ready foundations.</p>
+<div class="contact-row rise">
+<a class="btn" data-i18n="s9.12" href="mailto:timllz83@gmail.com">Email me</a>
+<a class="btn alt" data-i18n="s9.13" href="https://www.linkedin.com/in/runtian-huang-58751455/" rel="noreferrer" target="_blank">LinkedIn</a>
+</div>
+</div>
+<div class="media"><div class="media-inner" style="width:100%">
+<div class="polaroids">
+<figure class="polaroid"><img alt="" src="assets/project-it-ot-cyber.webp"/><span data-i18n="s9.7">Cyber uplift</span></figure>
+<figure class="polaroid"><img alt="" src="assets/cv-spearfishing.webp"/><span data-i18n="s9.8">23m down</span></figure>
+<figure class="polaroid"><img alt="" src="assets/project-hybrid-cloud-ai.webp"/><span data-i18n="s9.9">Cloud moves</span></figure>
+<figure class="polaroid"><img alt="" src="assets/project-meraki-segmentation.webp"/><span data-i18n="s9.10">Networks</span></figure>
+</div>
+</div></div>
+<aside class="side">
+<div class="card rise"><p class="dedication" data-i18n="s9.11">"Beneath the surface, clarity. Above it, impact."</p><span class="stat-label" data-i18n="s9.4">Tim Huang</span></div>
+<div class="card rise"><span class="mini-label" data-i18n="s9.5">Reply time</span><span class="mini-title" data-i18n="s9.6">Usually within a day</span></div>
+</aside>
+</section>
+</main>
+<nav aria-label="Scene progress" class="dots"></nav>
+<div aria-label="Highlights" class="marquee">
+<div class="marquee-track">
+<span>Zero high-severity incidents for 4+ years <i aria-hidden="true" class="bob" data-emo=""></i> 95% of Year 1 IT/OT roadmap delivered <i aria-hidden="true" class="bob" data-emo=""></i> 90% onboarding time saved <i aria-hidden="true" class="bob" data-emo=""></i> 30% cloud cost savings <i aria-hidden="true" class="bob" data-emo=""></i> 99.9% Energy One uptime <i aria-hidden="true" class="bob" data-emo=""></i> Currently: Head of IT, Banpu Energy Australia <i aria-hidden="true" class="bob" data-emo=""></i></span>
+<span aria-hidden="true">Zero high-severity incidents for 4+ years <i class="bob" data-emo=""></i> 95% of Year 1 IT/OT roadmap delivered <i class="bob" data-emo=""></i> 90% onboarding time saved <i class="bob" data-emo=""></i> 30% cloud cost savings <i class="bob" data-emo=""></i> 99.9% Energy One uptime <i class="bob" data-emo=""></i> Currently: Head of IT, Banpu Energy Australia <i class="bob" data-emo=""></i></span>
+</div>
+</div>
+<script>
+(() => {
+  const body = document.body;
+  const scenes = [...document.querySelectorAll(".scene")];
+  const track = document.getElementById("track");
+  const nav = document.querySelector(".pillnav");
+  const dots = document.querySelector(".dots");
+  const nowLabel = document.querySelector(".now-label");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const touch = matchMedia("(hover: none)").matches;
+  let current = -1;
+
+  const params = new URLSearchParams(location.search);
+  const toggle = document.querySelector(".theme-toggle");
+  const langToggle = document.querySelector(".lang-toggle");
+  const marqueeTrack = document.querySelector(".marquee-track");
+  let lang = "en";
+
+  const I18N = {
+    zh: {"s1.1": "场景 01 · 你好", "s1.2": "你好，我是 <em>Tim</em>。<br/>我让灯一直亮着。", "s1.3": "黄润田，Banpu Energy Australia IT 负责人。网络、云、网络安全，还有中间那些 OT 设备，保障可再生能源安全运转。", "s1.4": "15+", "s1.5": "年 IT 团队与基础设施管理经验", "s1.6": "坐标", "s1.7": "悉尼 NSW · 能源、物流与 SaaS", "s2.1": "场景 02 · 2009 至 2012", "s2.2": "<em>下潜</em>从这里开始。", "s2.3": "W.T.A International Trading。Linux、Windows、SAN、VPN、PBX 电话。只要会闪灯的，我都修过。", "s2.4": "2009", "s2.5": "第一个由我从头到尾负责的网络", "s2.6": "职位", "s2.7": "网络系统管理员", "s2.8": "第一次走进机房的心动", "s3.1": "场景 03 · 2012 至 2022", "s3.2": "在云端<em>升级</em>。", "s3.3": "Ideagen / CompliSpace。把本地机房整体迁到 Azure 和 Office 365，搭建灾备，之后带领一家成长中的 SaaS 公司的基础设施团队。", "s3.4": "10 年", "s3.5": "系统管理员 → 基础设施经理", "s3.6": "工具箱", "s3.7": "Azure · O365 · Aruba SDN · Intune", "s3.8": "本地 → Azure，一个周末一个周末地搬", "s4.1": "场景 04 · 2022 至 2023", "s4.2": "开始<em>带队</em>。", "s4.3": "Anspec IT 运营经理。医疗分销与物流：ISO 9001、SAP ERP、仓储系统，以及一套真正能用的 BCP/DRP。", "s4.4": "0 → 1", "s4.5": "网络安全成熟度等级提升", "s4.6": "交付成果", "s4.7": "ISO 9001 · SAP · WMS · BCP/DRP", "s4.8": "ERP、WMS，还有一大堆供应商", "s5.1": "场景 05 · 2023 至今", "s5.2": "IT 负责人，<em>能源</em>版。", "s5.3": "Banpu Energy Australia。太阳能电站、储能电池和 SCADA，以及守护关键基础设施的网络安全体系。", "s5.4": "95%", "s5.5": "第一年 IT/OT 路线图完成率", "s5.6": "安全记录", "s5.7": "4 年以上零高危安全事件", "s5.8": "IT 与 OT，安全相遇", "s6.1": "场景 06 · 成绩", "s6.2": "小团队，<em>大</em>成绩。", "s6.3": "把繁琐的流程自动化，把云账单压下来，在关键时刻让交易平台稳稳在线。", "s6.4": "90%", "s6.5": "入职/离职手工流程减少", "s6.6": "另外", "s6.7": "云成本节省 30% · 可用率 99.9%", "s6.8": "让 Power Automate 去填表", "s7.1": "场景 07 · 工具箱", "s7.2": "我的<em>工具箱</em>。", "s7.3": "云、网络、安全和项目交付全线认证，而且还在继续收集。", "s7.4": "13", "s7.5": "项认证，另有 3 项进行中", "s7.6": "下一站", "s7.7": "CISSP · OSCP · AWS SA-Pro", "s7.8": "FinOps：同样的云，更小的账单", "s8.1": "场景 08 · 下班之后", "s8.2": "海面<em>之下</em>。", "s8.3": "周末我会带着鱼枪自由潜。放慢呼吸、保持耐心、读懂海况：同样的能力，换了个办公室。", "s8.4": "23m", "s8.5": "一口气的深度", "s8.6": "海洋法则", "s8.7": "专注 · 自律 · 敬畏 · 安全", "s8.8": "冷静是一种能力", "s9.1": "场景 09 · 浮出水面", "s9.2": "聊<em>聊</em>吧。", "s9.3": "欢迎交流高级 IT 管理机会：IT/OT 转型、网络安全、云架构与 AI 数据基础。", "s9.4": "黄润田 Tim Huang", "s9.5": "回复时间", "s9.6": "通常一天内回复", "s9.7": "安全升级", "s9.8": "23 米深处", "s9.9": "上云之路", "s9.10": "网络", "s9.11": "「海面之下是清晰，海面之上是影响力。」", "s9.12": "发邮件给我", "s9.13": "LinkedIn"},
+    ui: {
+      en: {
+        names: ["Hello", "2009", "Level up", "Lead", "Now", "Wins", "Toolkit", "Deep", "Say hi"],
+        beach: "Beach", deep: "Deep Sea", toBeach: "Switch to Beach theme", toDeep: "Switch to Deep Sea theme",
+        langBtn: "中文", langBtnLabel: "切换到中文", cv: "Download", goTo: "Go to scene",
+        title: "Tim Huang | Head of IT",
+        marquee: ["Zero high-severity incidents for 4+ years", "95% of Year 1 IT/OT roadmap delivered", "90% onboarding time saved", "30% cloud cost savings", "99.9% Energy One uptime", "Currently: Head of IT, Banpu Energy Australia"]
+      },
+      zh: {
+        names: ["你好", "2009", "升级", "带队", "现在", "成绩", "工具箱", "深海", "联系"],
+        beach: "沙滩", deep: "深海", toBeach: "切换到沙滩配色", toDeep: "切换到深海配色",
+        langBtn: "EN", langBtnLabel: "Switch to English", cv: "下载", goTo: "跳转到场景",
+        title: "黄润田 Tim Huang | IT 负责人",
+        marquee: ["连续 4 年以上零高危安全事件", "第一年 IT/OT 路线图完成 95%", "入职流程节省 90% 时间", "云成本节省 30%", "Energy One 可用率 99.9%", "现任：Banpu Energy Australia IT 负责人"]
+      }
+    }
+  };
+  const EN = {};
+  document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
+
+  function themeEmoji(i) {
+    return body.classList.contains("theme-ocean") ? ["🐠", "🫧", "🐙", "🌊"][i % 4] : ["🧋", "✦", "🧡", "☕"][i % 4];
+  }
+  function buildMarquee() {
+    const items = I18N.ui[lang].marquee;
+    const row = (hidden) => `<span${hidden ? ' aria-hidden="true"' : ""}>` +
+      items.map((t, i) => `${t} <i class="bob" aria-hidden="true">${themeEmoji(i)}</i>`).join(" ") + "</span>";
+    marqueeTrack.innerHTML = row(false) + row(true);
+  }
+  function syncThemeButton() {
+    const ui = I18N.ui[lang];
+    const toOcean = !body.classList.contains("theme-ocean");
+    // the button names the OTHER theme: on the beach it offers the deep sea, and back again
+    toggle.querySelector(".toggle-text").textContent = toOcean ? ui.deep : ui.beach;
+    toggle.querySelector(".toggle-icon").textContent = toOcean ? "🌊" : "🏖️";
+    toggle.setAttribute("aria-label", toOcean ? ui.toDeep : ui.toBeach);
+    toggle.setAttribute("aria-pressed", String(!toOcean));
+  }
+  function setTheme(t) {
+    body.classList.toggle("theme-ocean", t === "ocean");
+    try { localStorage.setItem("tim-cv-theme", t); } catch (e) {}
+    syncThemeButton();
+    buildMarquee();
+    applyBg();
+  }
+  function setLang(l) {
+    lang = l === "zh" ? "zh" : "en";
+    const ui = I18N.ui[lang];
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+    document.title = ui.title;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      el.innerHTML = lang === "zh" ? I18N.zh[el.dataset.i18n] : EN[el.dataset.i18n];
+    });
+    scenes.forEach((s, i) => { s.dataset.name = ui.names[i]; });
+    [...nav.children].forEach((b, i) => { b.textContent = ui.names[i]; });
+    [...dots.children].forEach((b, i) => b.setAttribute("aria-label", `${ui.goTo} ${i + 1}: ${ui.names[i]}`));
+    langToggle.textContent = ui.langBtn;
+    langToggle.lang = lang === "zh" ? "en" : "zh-CN";
+    langToggle.setAttribute("aria-label", ui.langBtnLabel);
+    const cvLong = document.querySelector(".cta-long");
+    if (cvLong) cvLong.textContent = ui.cv;
+    if (current >= 0) nowLabel.textContent = `${String(current + 1).padStart(2, "0")} · ${ui.names[current]}`;
+    syncThemeButton();
+    buildMarquee();
+    try { localStorage.setItem("tim-cv-lang", lang); } catch (e) {}
+  }
+  langToggle.addEventListener("click", () => setLang(lang === "zh" ? "en" : "zh"));
+  toggle.addEventListener("click", () => setTheme(body.classList.contains("theme-ocean") ? "warm" : "ocean"));
+
+  function sceneH() { return innerHeight * (innerWidth <= 680 ? 1.4 : 1.3); }
+  function layout() { track.style.height = `${sceneH() * scenes.length + innerHeight * 0.2}px`; }
+
+  scenes.forEach((s, i) => {
+    const name = s.dataset.name;
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = name; b.addEventListener("click", () => go(i));
+    nav.appendChild(b);
+    const d = document.createElement("button");
+    d.type = "button"; d.setAttribute("aria-label", `Go to scene ${i + 1}: ${name}`); d.addEventListener("click", () => go(i));
+    dots.appendChild(d);
+  });
+  document.querySelector("[data-go]").addEventListener("click", e => { e.preventDefault(); go(0); });
+
+  function go(i) { window.scrollTo({ top: i * sceneH() + 2, behavior: reduce ? "auto" : "smooth" }); }
+
+  function applyBg() {
+    const s = scenes[Math.max(current, 0)];
+    const ocean = body.classList.contains("theme-ocean");
+    body.style.backgroundColor = ocean ? s.dataset.ocean : s.dataset.bg;
+    body.classList.toggle("tone-light", ocean && s.dataset.tone === "light");
+  }
+
+  function activate(i) {
+    if (i === current) return;
+    current = i;
+    scenes.forEach((s, k) => {
+      s.classList.toggle("active", k === i);
+      s.setAttribute("aria-hidden", String(k !== i));
+      s.querySelectorAll("video").forEach(v => { if (k === i) v.play().catch(() => {}); else { v.pause(); v.currentTime = 0; } });
+    });
+    [...nav.children].forEach((b, k) => { b.classList.toggle("active", k === i); b.setAttribute("aria-current", k === i ? "step" : "false"); });
+    [...dots.children].forEach((b, k) => b.classList.toggle("active", k === i));
+    nowLabel.textContent = `${String(i + 1).padStart(2, "0")} · ${scenes[i].dataset.name}`;
+    applyBg();
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const i = Math.min(scenes.length - 1, Math.max(0, Math.floor(scrollY / sceneH())));
+      activate(i);
+      ticking = false;
+    });
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", () => { layout(); onScroll(); });
+  addEventListener("keydown", e => {
+    if (e.target.closest("input, textarea")) return;
+    if (["ArrowDown", "PageDown"].includes(e.key)) { e.preventDefault(); go(Math.min(scenes.length - 1, current + 1)); }
+    if (["ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); go(Math.max(0, current - 1)); }
+  });
+
+  // parallax (lerp 0.07), applied to inner elements only, never to blend-mode parents
+  if (!reduce && !touch) {
+    let tx = 0, ty = 0, x = 0, y = 0;
+    addEventListener("mousemove", e => { tx = e.clientX / innerWidth - 0.5; ty = e.clientY / innerHeight - 0.5; });
+    (function loop() {
+      x += (tx - x) * 0.07; y += (ty - y) * 0.07;
+      const s = scenes[current];
+      if (s) {
+        s.style.setProperty("--mx", `${x * 26}px`); s.style.setProperty("--my", `${y * 18}px`);
+        s.style.setProperty("--nx", `${x * -40}px`); s.style.setProperty("--ny", `${y * -28}px`);
+        s.style.setProperty("--cx", `${x * 8}px`); s.style.setProperty("--cy", `${y * 6}px`);
+      }
+      requestAnimationFrame(loop);
+    })();
+
+    // themed cursor trail with a cap
+    let live = 0, last = 0;
+    addEventListener("mousemove", e => {
+      const now = performance.now();
+      if (now - last < 45 || live > 26) return;
+      last = now;
+      const p = document.createElement("span");
+      const ocean = body.classList.contains("theme-ocean");
+      const star = Math.random() < 0.15;
+      p.className = "particle " + (star ? "star" : ocean ? "bubble" : "pearl");
+      if (star) p.textContent = "✦";
+      const size = star ? 14 : 6 + Math.random() * 7;
+      p.style.width = p.style.height = `${size}px`;
+      p.style.left = `${e.clientX - size / 2}px`; p.style.top = `${e.clientY - size / 2}px`;
+      p.style.setProperty("--dx", `${(Math.random() - 0.5) * 40}px`);
+      document.body.appendChild(p); live++;
+      setTimeout(() => { p.remove(); live--; }, 1100);
+    });
+  }
+
+  layout();
+  let saved = null, savedLang = null;
+  try { saved = localStorage.getItem("tim-cv-theme"); savedLang = localStorage.getItem("tim-cv-lang"); } catch (e) {}
+  setTheme((params.get("theme") || saved) === "ocean" ? "ocean" : "warm");
+  setLang(params.get("lang") || savedLang || "en");
+  const start = parseInt(params.get("scene") || "0", 10);
+  if (start > 0) scrollTo(0, start * sceneH() + 2);
+  onScroll();
+})();
+</script>
+</body>
 </html>
