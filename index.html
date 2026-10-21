@@ -4,7 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Interactive personal CV for Runtian Tim Huang, Head of IT.">
-    <title>Runtian Huang | Head of IT</title>
+    <title>Runtian (Tim) Huang | Head of IT</title>
+    <meta name="theme-color" content="#061313">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Runtian (Tim) Huang | Head of IT">
+    <meta property="og:description" content="15+ years leading IT/OT transformation, cybersecurity, cloud and infrastructure across energy, logistics and compliance sectors.">
+    <meta property="og:url" content="https://timllz-huang.github.io/tim-huang-interactive-cv/">
+    <meta property="og:image" content="https://timllz-huang.github.io/tim-huang-interactive-cv/assets/underwater-hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061313'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c4ff2e' text-anchor='middle'%3ERH%3C/text%3E%3C/svg%3E">
     <link rel="preload" href="assets/hero-loop.webp" as="image">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -28,12 +36,12 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button class="dive-toggle" type="button" aria-pressed="false">
+        <button class="dive-toggle" type="button" aria-pressed="false" aria-label="Toggle Dive Mode">
           <span class="toggle-orb"></span>
-          Dive Mode
+          <span class="toggle-label">Dive Mode</span>
         </button>
-        <button class="palette-button" type="button" aria-haspopup="dialog" aria-controls="commandPalette">
-          <span>Ctrl</span>K
+        <button class="palette-button" type="button" aria-haspopup="dialog" aria-controls="commandPalette" aria-label="Open command menu">
+          <span class="kbd-label">Ctrl K</span><span class="menu-label">Menu</span>
         </button>
       </div>
     </header>
@@ -92,7 +100,7 @@
             <a href="cv.html">Online CV</a>
             <button type="button" data-jump="#spearfishing">Spearfishing</button>
             <button type="button" data-jump="#contact">Contact</button>
-            <a href="assets/tim-huang-head-of-it-updated-cv.docx" download>Download CV</a>
+            <a class="quick-primary" href="assets/tim-huang-head-of-it-updated-cv.docx" download>Download CV</a>
           </div>
           <div class="glance">
             <div><strong data-count="15" data-suffix="+">0</strong><span>Years leadership</span></div>
@@ -240,11 +248,11 @@
               <span>Start</span>
             </button>
             <button class="dive-profile-node" type="button" data-panel="ideagen-admin">
-              <strong>2013</strong>
+              <strong>2012</strong>
               <span>Level up</span>
             </button>
             <button class="dive-profile-node" type="button" data-panel="ideagen-manager">
-              <strong>2016</strong>
+              <strong>2018</strong>
               <span>Take the lead</span>
             </button>
             <button class="dive-profile-node" type="button" data-panel="anspec">
@@ -340,9 +348,10 @@
           <h2>Let's connect.</h2>
           <p>Open to senior IT leadership conversations across IT/OT transformation, cybersecurity, cloud architecture, infrastructure resilience, and AI-ready digital foundations.</p>
         </div>
+        <a class="contact-email reveal" href="mailto:timllz83@gmail.com">timllz83@gmail.com</a>
         <div class="contact-actions reveal">
           <a href="https://www.linkedin.com/in/runtian-huang-58751455/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:timllz83@gmail.com?subject=IT leadership conversation with Tim Huang">Email</a>
+          <a href="mailto:timllz83@gmail.com?subject=IT%20leadership%20conversation%20with%20Tim%20Huang">Email</a>
           <a href="cv.html">Online CV</a>
           <a href="assets/tim-huang-head-of-it-updated-cv.docx" download>Head of IT CV</a>
           <a href="assets/tim-huang-cio-cv.docx" download>CIO CV</a>
@@ -356,7 +365,7 @@
           <strong>Command Palette</strong>
           <button type="submit">Close</button>
         </div>
-        <input type="search" placeholder="Type: projects, credentials, spearfishing..." aria-label="Command search">
+        <input type="search" placeholder="Type: projects, credentials, download..." aria-label="Command search" autocomplete="off">
         <div class="command-list">
           <button value="experience" data-jump="#experience">Experience</button>
           <button value="projects" data-jump="#projects">Projects</button>
@@ -364,6 +373,11 @@
           <button value="cv" data-link="cv.html">Online CV</button>
           <button value="spearfishing" data-jump="#spearfishing">Spearfishing</button>
           <button value="contact" data-jump="#contact">Contact</button>
+          <button value="download cv resume docx" data-link="assets/tim-huang-head-of-it-updated-cv.docx">Download Head of IT CV</button>
+          <button value="download cio cv resume docx" data-link="assets/tim-huang-cio-cv.docx">Download CIO CV</button>
+          <button value="email contact mail" data-link="mailto:timllz83@gmail.com">Email Tim</button>
+          <button value="linkedin social" data-link="https://www.linkedin.com/in/runtian-huang-58751455/">LinkedIn</button>
+          <p class="command-empty" hidden>No matches. Try “projects” or “cv”.</p>
         </div>
       </form>
     </dialog>

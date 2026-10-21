@@ -236,10 +236,64 @@ document.querySelectorAll("[data-jump]").forEach((button) => {
 });
 
 document.querySelectorAll("[data-link]").forEach((button) => {
-  button.addEventListener("click", () => {
-    window.location.href = button.dataset.link;
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const link = button.dataset.link;
+    if (palette.open) palette.close();
+    if (/^https?:/.test(link)) {
+      window.open(link, "_blank", "noopener");
+    } else if (/\.(docx|pdf)$/i.test(link)) {
+      const a = document.createElement("a");
+      a.href = link;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } else {
+      window.location.href = link;
+    }
   });
 });
+
+const paletteInput = palette.querySelector("input[type='search']");
+const commandButtons = [...palette.querySelectorAll(".command-list button")];
+const commandEmpty = palette.querySelector(".command-empty");
+
+function filterCommands() {
+  const query = paletteInput.value.trim().toLowerCase();
+  let first = null;
+  commandButtons.forEach((btn) => {
+    const haystack = `${btn.textContent} ${btn.value}`.toLowerCase();
+    const match = !query || query.split(/\s+/).every((word) => haystack.includes(word));
+    btn.hidden = !match;
+    btn.classList.remove("is-first");
+    if (match && !first) first = btn;
+  });
+  if (query && first) first.classList.add("is-first");
+  if (commandEmpty) commandEmpty.hidden = Boolean(first);
+  return first;
+}
+
+paletteInput.addEventListener("input", filterCommands);
+paletteInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const first = filterCommands();
+    if (first) first.click();
+  }
+});
+
+function openPalette() {
+  paletteInput.value = "";
+  filterCommands();
+  palette.showModal();
+  paletteInput.focus();
+}
+
+if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+  const kbd = document.querySelector(".palette-button .kbd-label");
+  if (kbd) kbd.textContent = "\u2318 K";
+}
 
 timelineNodes.forEach((node) => {
   node.addEventListener("click", () => setTimelinePanel(node.dataset.panel));
@@ -264,12 +318,12 @@ document.querySelector(".ripple-button").addEventListener("click", (event) => {
 });
 
 paletteButtons.forEach((button) => {
-  button.addEventListener("click", () => palette.showModal());
+  button.addEventListener("click", openPalette);
 });
 
 window.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
-    palette.showModal();
+    if (!palette.open) openPalette();
   }
 });

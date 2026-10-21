@@ -35,6 +35,7 @@ a {
 .cv-shell {
   display: grid;
   grid-template-columns: 90px minmax(0, 1fr) 390px;
+  align-items: start;
   min-height: 100vh;
 }
 
@@ -269,7 +270,7 @@ li::marker {
   color: var(--paper);
   background:
     linear-gradient(180deg, rgba(6, 19, 19, 0.72), rgba(6, 19, 19, 0.95)),
-    url("assets/underwater-hero.png") center / cover;
+    url("assets/underwater-hero.webp") center / cover;
 }
 
 .monogram {
@@ -399,7 +400,7 @@ li::marker {
 
 @media (max-width: 1100px) {
   .cv-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cv-index,
@@ -422,9 +423,9 @@ li::marker {
 
   .cv-index nav {
     display: flex;
-    gap: 14px;
-    margin-top: 16px;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 14px;
   }
 
   .cv-index a {
